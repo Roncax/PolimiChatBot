@@ -1,4 +1,91 @@
-\documentclass[10pt]{article}
+\documentclass[]{article}
+\usepackage[T1]{fontenc} 	% codifica dei font
+\usepackage[utf8]{inputenc} % lettere accentate da tastiera
+\usepackage[italian]{babel} % lingua del documento
+\usepackage{url} 			% per scrivere gli indirizzi Internet
+
 \begin{document}
-•
+
+\author{Paolo Roncaglioni \and Stefano Sanitate}
+\title{Progetto Ingegneria Informatica - Documento di Specifica}
+\maketitle
+
+\begin{abstract}
+Come idea abbiamo pensato di progettare un chatBot a tema Politecnico, in particolare un insieme di semplici tool che siano anche utili allo studente nella gestione della propria vita universitaria. 
+\end{abstract}
+
+\tableofcontents %generazione indice
+
+\newpage
+\section{Generalitá}
+
+\subsection{Scopo}
+Idealmente, le caratteristiche funzionali del nostro chatBot dovranno essere:
+
+\paragraph{Logged Users}
+\begin{enumerate}
+\item Possibilitá di richiedere orario universitario (standard, inserisci nome e corso di studio)
+\item Cerca aule libere (oggi - scelta orario)
+\item Ottenere orario aula specifica (utile per controllare)
+\item Cerca aula (output = nome edificio/location in maps, utile per le matricole)
+\item Calendario accademico (ti restituisce l’orario accademico, probabilmente possibile solo documento pdf)
+\end{enumerate}
+
+\paragraph{UnLogged Users}
+\begin{enumerate}
+\item Primo
+\item Secondo
+\end{enumerate}
+
+\subsection{Personalitá}
+Non saprei bene come prendere questa parte, poiché non ci é stato detto nulla in merito. Possiamo supporre che il nostro bot possa rispondere a un set di comandi predefiniti e dati da noi, non lasciando spazio all’utente per eventuali frasi complesse da interpretare. Questo approccio ci permetterebbe di tralasciare quasi completamente la parte sul parsing e riconoscimento degli elementi di una frase. Ovviamente il tutto dipende dalle possibilitá che avremo dal frameWork che sceglieremo.
+
+\section{Requisiti non funzionali}
+Sotto questa voce vanno i requisiti e caratteristiche che impongono vincoli  allo sviluppo del bot, sotto diversi punti di vista:
+\subsection{Prestazioni}
+\subsection{Privacy}
+\subsection{Motore di Scraping}
+\subsection{Persistenza}
+
+\section{Flow}
+
+\section{Ricerca del FrameWork: Bot di test}
+Bot creato per testare i vari framework esistenti, aiuterá la selezione del nostro ambiente di lavoro in base a dei parametri illustrati sotto. É essenziale che sia un bot semplice (per non perdere troppo tempo con lo sviluppo, essendo di test), ma con funzionalitá che siano correlate alla costruzione del nostro progetto in specifica. Pertanto ecco le regole che pensiamo debba soddisfare:
+\subsection{Requisiti}
+\subsection{Parametri di valutazione}
+Questi rappresentano i parametri che useremo per valutare il framework che testeremo. Essi comprendono sia i componenti di valutazione della costruzione del bot, che quelli piú generali della piattaforma che stiamo usando. La valutazione è a nostra discrezione, ovviamente seguita da una minima descrizione delle procedure svolte.
+
+\paragraph{Bot}
+\begin{itemize}
+\item{Facilitá di progettazione:} 
+\item{Tempo di implementazione:} 
+\item{Profondità:} 
+\item{Persistenza della memoria:} 
+\end{itemize}
+
+\paragraph{Framework}
+\subsection{Descrizione bot}
+\subsection{Deployment description}
+\subsubsection{DialogFlow}
+\subsubsection{FlowXo}
+\subsubsection{PandoraBots}
+\subsubsection{GupShup.io}
+\subsubsection{Microsoft Bot Framework}
+\subsubsection{Wit.ai}
+\subsubsection{ChatFuel}
+\subsubsection{kitt.ai}
+\subsection{Commenti Finali e decisione}
+
+\section{Costruzione bot di Demo}
+\subsection{ServerSide}
+\subsection{UX (DialogFlow)}
+\subsection{Limitazioni}
+
+\section{Futuri Sviluppi}
+
+% Bibliografia
+\begin{thebibliography}{9}
+bibliografia, software usati, github repo.
+\end{thebibliography}
+
 \end{document}

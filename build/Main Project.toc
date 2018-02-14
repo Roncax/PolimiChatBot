@@ -1,0 +1,34 @@
+\select@language {italian}
+\select@language {italian}
+\contentsline {section}{\numberline {1}Generalit\IeC {\'a}}{3}
+\contentsline {subsection}{\numberline {1.1}Scopo}{3}
+\contentsline {paragraph}{Logged Users}{3}
+\contentsline {paragraph}{UnLogged Users}{3}
+\contentsline {subsection}{\numberline {1.2}Personalit\IeC {\'a}}{3}
+\contentsline {section}{\numberline {2}Requisiti non funzionali}{3}
+\contentsline {subsection}{\numberline {2.1}Prestazioni}{4}
+\contentsline {subsection}{\numberline {2.2}Privacy}{4}
+\contentsline {subsection}{\numberline {2.3}Motore di Scraping}{4}
+\contentsline {subsection}{\numberline {2.4}Persistenza}{4}
+\contentsline {section}{\numberline {3}Flow}{4}
+\contentsline {section}{\numberline {4}Ricerca del FrameWork: Bot di test}{4}
+\contentsline {subsection}{\numberline {4.1}Requisiti}{4}
+\contentsline {subsection}{\numberline {4.2}Parametri di valutazione}{4}
+\contentsline {paragraph}{Bot}{4}
+\contentsline {paragraph}{Framework}{4}
+\contentsline {subsection}{\numberline {4.3}Descrizione bot}{5}
+\contentsline {subsection}{\numberline {4.4}Deployment description}{5}
+\contentsline {subsubsection}{\numberline {4.4.1}DialogFlow}{5}
+\contentsline {subsubsection}{\numberline {4.4.2}FlowXo}{5}
+\contentsline {subsubsection}{\numberline {4.4.3}PandoraBots}{5}
+\contentsline {subsubsection}{\numberline {4.4.4}GupShup.io}{5}
+\contentsline {subsubsection}{\numberline {4.4.5}Microsoft Bot Framework}{5}
+\contentsline {subsubsection}{\numberline {4.4.6}Wit.ai}{5}
+\contentsline {subsubsection}{\numberline {4.4.7}ChatFuel}{5}
+\contentsline {subsubsection}{\numberline {4.4.8}kitt.ai}{5}
+\contentsline {subsection}{\numberline {4.5}Commenti Finali e decisione}{5}
+\contentsline {section}{\numberline {5}Costruzione bot di Demo}{5}
+\contentsline {subsection}{\numberline {5.1}ServerSide}{5}
+\contentsline {subsection}{\numberline {5.2}UX (DialogFlow)}{5}
+\contentsline {subsection}{\numberline {5.3}Limitazioni}{5}
+\contentsline {section}{\numberline {6}Futuri Sviluppi}{5}
