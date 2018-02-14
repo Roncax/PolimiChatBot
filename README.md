@@ -11,3 +11,19 @@ Questa repository contiene il progetto di Ingegneria Informatica di Paolo Roncag
 
 
 Attualmente il nostro bot é attivo su Telegram al nome di @PolimiStudent_Bot, Enjoy!
+
+## Informazioni Generali
+
+WebHook address testBot: https://us-central1-weather-1ce1c.cloudfunctions.net/weatherWebhook
+
+Esempi di Json da inoltrare e ricevere (testBot)
+
+In entrata: 
+{ "result": {
+    "parameters": {
+      "date": "today",
+      "geo-city": "Milan"    }}}
+
+In uscita: 
+{"speech": "Current conditions in the City \n        Milan, Italy are Light Rain with a projected high of\n        14°C or 57°F and a low of \n        10°C or 49°F on \n        2017-11-09.",
+"displayText": "Current conditions in the City \n        Milan, Italy are Light Rain with a projected high of\n        14°C or 57°F and a low of \n        10°C or 49°F on \n        2017-11-09."}
