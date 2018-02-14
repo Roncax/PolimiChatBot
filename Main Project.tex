@@ -4,48 +4,59 @@
 \usepackage[italian]{babel} % lingua del documento
 \usepackage{url} 			% per scrivere gli indirizzi Internet
 
+
 \begin{document}
 
 \author{Paolo Roncaglioni \and Stefano Sanitate}
 \title{Progetto Ingegneria Informatica - Documento di Specifica}
 \maketitle
+\newpage
 
 \begin{abstract}
-Come idea abbiamo pensato di progettare un chatBot a tema Politecnico, in particolare un insieme di semplici tool che siano anche utili allo studente nella gestione della propria vita universitaria. 
+Questo documento di specifica racchiude in modo organizzato tutte le ricerche, informazioni e prove che nel corso di questo progetto abbiamo raccolto, creato, analizzato. Dopo una prima parte in cui viene descritto il funzionamento generale del Bot che abbiamo pensato di progettare, si passa ai dettagli e criteri dei test che abbiamo eseguito per poter fare un deployment di una prima semplice demo del progetto descritto.
 \end{abstract}
 
-\tableofcontents %generazione indice
-
+\tableofcontents	%generazione indice
 \newpage
+
 \section{Generalitá}
+Il progetto é ovviamente iniziato con la delineazione dello scopo del bot, cioé che cos'avrebbe dovuto fare e a chi potrebbe essere stato utile. In un primo momento son venute fuori idee interessanti, ma magari giá presenti (e.g.\ bot orari Trenitalia) e difficilmente migliorabili.
+Dopo aver quindi analizzato varie possibilitá di scelta delle funzionalitá del bot, abbiamo infine pensato di progettarne uno a tema Politecnico, che racchiuda un insieme di semplici tool allo studente (o al professore) nella gestione della propria vita universitaria. 
 
 \subsection{Scopo}
-Idealmente, le caratteristiche funzionali del nostro chatBot dovranno essere:
+La definizione delle caratteristiche funzionali inizia col dividerle in utenti che effettuano la propria registrazione con la coppia <Codice persona, Password> e in utenti che non lo fanno. La registrazione non é ovviamente obbligatoria, ma gli utenti loggati avranno a disposizione piú interazioni personalizzate col bot, oltre che avere tutte quelle possibili per gli utenti normali non loggati.
 
 \paragraph{Logged Users}
 \begin{enumerate}
-\item Possibilitá di richiedere orario universitario (standard, inserisci nome e corso di studio)
-\item Cerca aule libere (oggi - scelta orario)
-\item Ottenere orario aula specifica (utile per controllare)
-\item Cerca aula (output = nome edificio/location in maps, utile per le matricole)
-\item Calendario accademico (ti restituisce l’orario accademico, probabilmente possibile solo documento pdf)
+\item \textit{Orario universitario}: richiesta orario delle lezioni, previo inserimento di tutti quei parametri che servono per identificare il corso (nome, corso di studio, sede)
+\item \textit{Aule libere}: richiesta elenco aule libere, previa scelta del giorno e orario 
+\item \textit{Orario aula}: richiesta elenco corsi e orari di una specifica aula (utile per controllare velocemente se l'aula davanti a te é libera)
+\item \textit{Posizione aula}: restituisce semplicemente l'edificio in cui é l'aula (utile per le matricole)
+\item \textit{Calendario accademico}: richiesta orario accademico, ti manda il pdf presente sul sito del Poli 
 \end{enumerate}
 
 \paragraph{UnLogged Users}
 \begin{enumerate}
-\item Primo
-\item Secondo
+\item \textit{Orario universitario personalizzato}: stessa cosa della funzionalitá parte utente loggato, ma con i dati a disposizione é possibile avere maggiore accuratezza e non é richiesto l'inserimento dei dati
+\item \textit{Esami}: richiesta elenco degli esami a cui ci si é iscritti
+\item \textit{Informazione esami}: informazioni su esami a cui si é iscritti (i.e.\ aula, orario) 
+\item \textit{Carriera didattica}: restituzione informazioni generali della propria carriera (e.g.\ media, crediti)
+\item \textit{Avvisi generici}: possibilitá di settare avvisi generici con qualsiasi evento di trigger (inizialmente solo uscita voti esami con relativa votazione)
 \end{enumerate}
 
 \subsection{Personalitá}
-Non saprei bene come prendere questa parte, poiché non ci é stato detto nulla in merito. Possiamo supporre che il nostro bot possa rispondere a un set di comandi predefiniti e dati da noi, non lasciando spazio all’utente per eventuali frasi complesse da interpretare. Questo approccio ci permetterebbe di tralasciare quasi completamente la parte sul parsing e riconoscimento degli elementi di una frase. Ovviamente il tutto dipende dalle possibilitá che avremo dal frameWork che sceglieremo.
+Non sapremmo bene come prendere questa parte, poiché non ci é stato detto nulla in merito. Inizialmente di pensava di supporre che il nostro bot possa rispondere a un set di comandi predefiniti e dati da noi, non lasciando spazio all’utente per eventuali frasi complesse da interpretare. Questo approccio ci avrebbe permesso di tralasciare quasi completamente la parte sul parsing e riconoscimento degli intenti. Man mano che cominciavamo a sviluppare il nostro progetto peró ci é sembrato limitante questo approccio, poiché la vera natura del nostro progetto era di "esplorazione" di questo nuovo ambiente. Abbiamo quindi convenuto che la parte interessante sarebbe stata appunto confrontare le varie soluzioni giá presenti di NLU (natural language understanding) e rendere la conversazione col bot il piú vicino possibile a quella con un umano. Ecco quindi che si delinea l'importanza dell'utilizzo di un FrameWork che abbia queste possibilitá.
 
 \section{Requisiti non funzionali}
-Sotto questa voce vanno i requisiti e caratteristiche che impongono vincoli  allo sviluppo del bot, sotto diversi punti di vista:
-\subsection{Prestazioni}
+Sotto questa voce vanno i requisiti e caratteristiche che impongono vincoli  allo sviluppo del bot, sotto diversi punti di vista. Per ogni problema si cercherá quindi una possibile soluzione di implementazione, che non andremo a sviluppare nella demo in quanto non riteniamo necessario in questo progetto approfondire ulteriormente.
+\subsection{Prestazioni \and Price strategies}
+Secondo il modello posto sopra, un bot in generale si puó rappresentare con due parti distinte, poste totalmente o in parte su un server esterno. La scelta del server influenzerá sicuramente il numero di interrogazioni che si possono fare, la velocitá di risposta e l'usabilitá in generale, a discapito del prezzo che la piattaforma di hosting ci fará pagare per avere questi servigi. Se si utilizza una soluzione "locale" in cui il proprio pc fa da server si avranno sicuramente degli svantaggi rispetto a una soluzione cloud, ma il prezzo sará nullo e le limitazioni (sulla carta) non esisterebbero. Ad ora, esplorando le varie possibili scelte, per la fase ti testing della demo é stato possibile sempre usufruire delle opzioni "free" della piattaforma di turno. Questo include sia UX che Hosting Server.
 \subsection{Privacy}
+
 \subsection{Motore di Scraping}
+
 \subsection{Persistenza}
+
 
 \section{Flow}
 
@@ -57,23 +68,135 @@ Questi rappresentano i parametri che useremo per valutare il framework che teste
 
 \paragraph{Bot}
 \begin{itemize}
-\item{Facilitá di progettazione:} 
-\item{Tempo di implementazione:} 
-\item{Profondità:} 
-\item{Persistenza della memoria:} 
+\item \textit{Facilitá di progettazione}: 
+\item \textit{Tempo di implementazione}: 
+\item \textit{Profondità}: 
+\item \textit{Persistenza della memoria}: 
+\end{itemize}
+
+\paragraph{FrameWork}
+\begin{itemize}
+\item \textit{Pricing strategies}: 
+\item \textit{Piattaforme}: 
+\item \textit{Disponibilitá di SDK}: 
 \end{itemize}
 
 \paragraph{Framework}
 \subsection{Descrizione bot}
 \subsection{Deployment description}
+
 \subsubsection{DialogFlow}
+\paragraph{Implementazione}
+\paragraph{Valutazione}
+\begin{itemize}
+\item \textit{Facilitá di progettazione}: 
+\item \textit{Tempo di implementazione}: 
+\item \textit{Profondità}: 
+\item \textit{Persistenza della memoria}: 
+\item \textit{Pricing strategies}: 
+\item \textit{Piattaforme}: 
+\item \textit{Disponibilitá di SDK}: 
+\end{itemize}
+\paragraph{Commento personale}
+
 \subsubsection{FlowXo}
+\paragraph{Implementazione}
+\paragraph{Valutazione}
+\begin{itemize}
+\item \textit{Facilitá di progettazione}: 
+\item \textit{Tempo di implementazione}: 
+\item \textit{Profondità}: 
+\item \textit{Persistenza della memoria}: 
+\item \textit{Pricing strategies}: 
+\item \textit{Piattaforme}: 
+\item \textit{Disponibilitá di SDK}: 
+\end{itemize}
+\paragraph{Commento personale}
+
 \subsubsection{PandoraBots}
+\paragraph{Implementazione}
+\paragraph{Valutazione}
+\begin{itemize}
+\item \textit{Facilitá di progettazione}: 
+\item \textit{Tempo di implementazione}: 
+\item \textit{Profondità}: 
+\item \textit{Persistenza della memoria}: 
+\item \textit{Pricing strategies}: 
+\item \textit{Piattaforme}: 
+\item \textit{Disponibilitá di SDK}: 
+\end{itemize}
+\paragraph{Commento personale}
+
 \subsubsection{GupShup.io}
+\paragraph{Implementazione}
+\paragraph{Valutazione}
+\begin{itemize}
+\item \textit{Facilitá di progettazione}: 
+\item \textit{Tempo di implementazione}: 
+\item \textit{Profondità}: 
+\item \textit{Persistenza della memoria}: 
+\item \textit{Pricing strategies}: 
+\item \textit{Piattaforme}: 
+\item \textit{Disponibilitá di SDK}: 
+\end{itemize}
+\paragraph{Commento personale}
+
 \subsubsection{Microsoft Bot Framework}
+\paragraph{Implementazione}
+\paragraph{Valutazione}
+\begin{itemize}
+\item \textit{Facilitá di progettazione}: 
+\item \textit{Tempo di implementazione}: 
+\item \textit{Profondità}: 
+\item \textit{Persistenza della memoria}: 
+\item \textit{Pricing strategies}: 
+\item \textit{Piattaforme}: 
+\item \textit{Disponibilitá di SDK}: 
+\end{itemize}
+\paragraph{Commento personale}
+
 \subsubsection{Wit.ai}
+\paragraph{Implementazione}
+\paragraph{Valutazione}
+\begin{itemize}
+\item \textit{Facilitá di progettazione}: 
+\item \textit{Tempo di implementazione}: 
+\item \textit{Profondità}: 
+\item \textit{Persistenza della memoria}: 
+\item \textit{Pricing strategies}: 
+\item \textit{Piattaforme}: 
+\item \textit{Disponibilitá di SDK}: 
+\end{itemize}
+\paragraph{Commento personale}
+
 \subsubsection{ChatFuel}
+\paragraph{Implementazione}
+\paragraph{Valutazione}
+\begin{itemize}
+\item \textit{Facilitá di progettazione}: 
+\item \textit{Tempo di implementazione}: 
+\item \textit{Profondità}: 
+\item \textit{Persistenza della memoria}: 
+\item \textit{Pricing strategies}: 
+\item \textit{Piattaforme}: 
+\item \textit{Disponibilitá di SDK}: 
+\end{itemize}
+\paragraph{Commento personale}
+
 \subsubsection{kitt.ai}
+\paragraph{Implementazione}
+\paragraph{Valutazione}
+\begin{itemize}
+\item \textit{Facilitá di progettazione}: 
+\item \textit{Tempo di implementazione}: 
+\item \textit{Profondità}: 
+\item \textit{Persistenza della memoria}: 
+\item \textit{Pricing strategies}: 
+\item \textit{Piattaforme}: 
+\item \textit{Disponibilitá di SDK}: 
+\end{itemize}
+\paragraph{Commento personale}
+
 \subsection{Commenti Finali e decisione}
 
 \section{Costruzione bot di Demo}
