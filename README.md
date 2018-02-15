@@ -27,3 +27,13 @@ In entrata:
 In uscita: 
 {"speech": "Current conditions in the City \n        Milan, Italy are Light Rain with a projected high of\n        14°C or 57°F and a low of \n        10°C or 49°F on \n        2017-11-09.",
 "displayText": "Current conditions in the City \n        Milan, Italy are Light Rain with a projected high of\n        14°C or 57°F and a low of \n        10°C or 49°F on \n        2017-11-09."}
+
+Esempi di Json da inoltrare e ricevere (modifica chatfuel)
+
+In entrata:
+ {{‘data’:”today”
+‘geo-city’}}
+
+In uscita: 
+{ "messages": [
+   {"text": "Current conditions in the City \n        Milan, Italy are Light Rain with a projected high of\n        14°C or 57°F and a low of \n        10°C or 49°F on \n        2017-11-09."} ]}
