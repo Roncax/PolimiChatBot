@@ -62,13 +62,57 @@ Secondo il modello posto sopra, un bot in generale si puó rappresentare con due
 \subsection{Privacy e persistenza}
 Oltre alle informazioni pubbliche dell'utente, dobbiamo per forza aver a che fare con dati personali (e.g.\ password, codice persona ...) e riservati, che ne gli sviluppatori ne qualcuno esterno dovrebbe essere in grado di leggere. Queste informazioni doverebbero, se non vogliamo che l'utente debba sempre inserire le sue credenziali, essere tenute e criptate in qualche database esterno criptato in modo che neanche noi possano accedere al contenuto se non per interrogazione da parte del codice. Purtroppo questa problematica é una parte troppo grossa da risolvere in un progetto del genere, e potrebbe tranquillamente portarci via tutto il tempo che abbiamo pensato di dedicare al bot. Non analizzeremo dunque piú a fondo questa sezione. 
 
-\subsection{Motore di Scraping}
-
-
-
-
+\subsection{Scraping}
+\begin{quote} 
+"Il web scraping (detto anche web harvesting o web data extraction) è una tecnica informatica di estrazione di dati da un sito web per mezzo di programmi software"
+\end{quote}
+Esso quindi é la parte che si occupa di cercare e raccogliere dati sul web, riordinarli e restituirli al richiedente. Il nostro progetto é strettamente correlato alle informazioni esterne che dobbiamo cercare all'interno (nel nostro caso) del sito del politecnico/beep, che purtroppo non é fornita di comode API che possiamo chiamare nel codice. Viene quindi visto indispensabile un cosiddetto \textit{motore di scraping}, ovvero la parte di codice o software preposto alla raccolta dei dati a noi utili. Anch'esso é un argomento molto, forse troppo vasto per parlarne in queste poche righe, e purtroppo ci siamo visti costretti a non implementarlo nella prima demo del bot. Al suo posto abbiamo pensato di utilizzare un motore "fake" costruito su un foglio di testo, ma di questo se ne parlerá nella sezione dedicata allo sviluppo della demo. Abbiamo ovviamente fatto ricerche, seppur quasi superficiali, su questo argomento. É venuto fuori che esistono decine e decine di software (free o a pagamento) che offrono web scraping di varia profonditá, integrazioni con API e servizi. Uno in particolare ha attirato la nostra attenzione: un portale free che offre soluzioni di scraping \textit{in teoria facile da programmare} che risponde al nome di \textbf{Portia}. Qualche prova é stata fatta giusto per vedere che cosa si poteva e per adattare al meglio la nostra demo, in una previsione di implementazione futura. Si é concluso che il Json é sempre il mezzo piú semplice e veloce per simulare questi motori.
 
 \section{Flow}
+Questo é il fulcro della progettazione della demo del bot. Vengono sotto proposti due tipi differenti di rappresentazioni grafiche, che nel loro insieme dovrebbero comporre la parte dedicata alla UX. La prima infatti, molto simile a un diagramma a flusso, mette ordine sul percorso che la conversazione deve avere in determinati momenti, presentando il tipo di risposte che l'utente si deve aspettare dopo determinate interrogazioni (é comunque presente una legenda per aiutare la comprenzione). Il secondo, a nostro avviso piú interessante, é piú simile a un diagramma delle classi, e cerca di mettere in chiaro le relazioni e le caratteristiche degli argomenti della conversazioni (chiamati \textbf{contesti}). Proprio quest'ultimo, essendo piú elaborato, ha bisogno di essere spiegato attraverso alcune semplici regole:
+
+\begin{itemize}
+\item Una conversazione all'interno di un context puó cominciare da qualsiasi root intent dello stesso context
+\item Il passaggio tra due context può avvenire in qualsiasi momento: a seconda dell'intento che ne permette il passaggio, i parametri vengono tenuti. Se non vengono specificati parametri, di default non viene passato niente
+\item Non possono esistere più root intent con le stesse frasi di trigger, possono invece esistere degli intent normali con le stesse frasi
+\item Gli intent tra intent-name sono quelli che possono essere usati per le risposte di relazione simmetrica (riconosciute che partono dallo stesso context). Questa relazione viene usata solo se il numero di parametri é maggiore o uguale a 2. Un intent padre passa questa proprietá ai figli
+\item Il default fallback è presente in tutti i context e non deve essere un root intent: (per evitare sovrapposizioni tra piú intent)
+\item La relazione padre/figlio esiste quando un intento padre contiene nell'imput piú parametri. Per la scelta dell'intent in questa relazione si va a prendere il figlio che necessita di meno parametri per essere "attivato" (seguendo la gerarchia grafica)
+\end{itemize}
+
+La relazione tra i context é \textbf{SERIALE, RIFLESSIVA} (solo se in presenza di parametri) e \textbf{SIMMETRICA}.
+
+\begin{center}
+\vspace*{0.5cm}
+\includegraphics[width=0.6\textwidth]{flow2legend}
+\end{center}
+
+\pagebreak
+\vspace*{-3cm} 
+\includegraphics[width=2\textwidth, angle =90 ]{p01}
+\thispagestyle{empty}
+
+
+\vspace*{-3cm}
+\hspace*{-2cm} 
+\includegraphics[width=2\textwidth, angle =90 ]{p02}
+\thispagestyle{empty}
+
+
+\vspace*{-3cm}
+\hspace*{-2cm} 
+\includegraphics[width=2\textwidth, angle =90 ]{p03}
+\thispagestyle{empty}
+
+\vspace*{-3cm}
+\hspace*{-3cm} 
+\includegraphics[width=1.6\textwidth]{p05}
+\thispagestyle{empty}
+
+\vspace*{-3cm}
+\hspace*{-3cm} 
+\includegraphics[width=1.6\textwidth]{p04}
+\thispagestyle{empty}
 
 \section{Ricerca del FrameWork: Bot di test}
 Bot creato per testare i vari framework esistenti, aiuterá la selezione del nostro ambiente di lavoro in base a dei parametri illustrati sotto. É essenziale che sia un bot semplice (per non perdere troppo tempo con lo sviluppo, essendo di test), ma con funzionalitá che siano correlate alla costruzione del nostro progetto in specifica. Pertanto ecco le regole che pensiamo debba soddisfare.
@@ -110,12 +154,12 @@ Per l’hosting e il deployment del codice (funzione weatherWebhook) che è serv
 \paragraph{Implementazione}
 La piattaforma permette di creare degli “agent”, contenitori che servono a raccogliere i vari pezzi di riconoscimento delle risposte (“intent”). All’interno di un agent possiamo creare piú intent, cosicché  la struttura finale risultante puó risultare anche abbastanza complessa. Piú intent possono essere concatenati creando un contesto. All’interno di un intent possiamo creare un processo di riconoscimento della domanda data dall’utente, preimpostando una risposta (testuale e non). All’interno del set di domande che l’utente puó scrivere, si possono settare dei “parameter” (gestione quasi automatica del parsing, possiamo comunque scegliere alcuni aspetti del json) che verrebbero quindi usati per la generazione delle risposte. Il riempimento dei parametri puó essere settato per essere preso all’esterno della piattaforma (usando un webHook) in modo molto semplice, inviando e ricevendo sempre un file in formato json. Detto questo è quindi bastato settare un paio di domande e risposte negli intent che abbiamo creato, inserire il giusto indirizzo di webhook e il bot è stato creato e testato su console e sul servizio di chat Telegram.
 
-\begin{figure}
+\begin{center}
 \makebox[\textwidth][c]{%
 \includegraphics[width=1.2\textwidth]{dialogflow}
 }
-\caption{ \footnotesize{DialogFlow in breve}}
-\end{figure}
+\footnotesize{Dialogflow in breve}
+\end{center}
 
 \paragraph{Valutazione}
 \begin{itemize}
@@ -139,58 +183,80 @@ DialogFlow (ex API.ai) é un ottimo candidato al framework che useremo nel nostr
 FlowXo è il primo servizio nel quale per prima viene chiesta la piattaforma per la quale sviluppare il bot. Ho scelto Telegram: il sito si appoggia a @BotFather per creare e autenticare il proprio bot. Ad un proprio bot è possibile associare un flow, nel quale è possibile assegnare una serie di azioni (tra cui una richiesta http, nel nostro caso).
 \paragraph{Valutazione}
 \begin{itemize}
-\item \textit{Facilitá di progettazione}: \textbf{9} \\
-\item \textit{Tempo di implementazione}: \textbf{9} \\
-\item \textit{Profondità}: \textbf{9} \\
-\item \textit{Persistenza della memoria}: \textbf{9} \\
-\item \textit{Pricing strategies}: \textbf{9} \\
-\item \textit{Piattaforme}: \textbf{9} \\
-\item \textit{Disponibilitá di SDK}: \textbf{9} \\
+\item \textit{Facilitá di progettazione}: \textbf{9} \\ a differenza di altri servizi FlowXo (come suggerisce il nome) focalizza la propria attenzione sul concetto di flow che nel nostro caso è stato piuttosto comodo
+\item \textit{Tempo di implementazione}: \textbf{9} \\ 2 ore
+\item \textit{Profondità}: \textbf{8} \\ presenta tutte le funzioni base di un servizio del genere
+\item \textit{Persistenza della memoria}: \textbf{7} \\ permette di tenere traccia di parametri (settando una lifespan) da poter riusare nel giusto contesto, non abbiamo svolto ulteriori ricerche
+\item \textit{Pricing strategies}: \textbf{5} \\ si parte free, per poi passare ad un costo mensile non irrisorio che comprende 5000 interazioni mensili, 15 bot e 3 mesi di log
+\item \textit{Piattaforme}: \textbf{4} \\ limitato a Telegram
+\item \textit{Disponibilitá di SDK}: n/a
 \end{itemize}
+
 \paragraph{Commento personale}
+L’utilizzo massiccio del concetto di flow è stato interessante rispetto alle altre soluzioni, ma abbiamo preferito optare per un approccio più libero. Ciò non toglie che tale approccio possa essere più user friendly e intuitivo. Non ci è piaciuto il pricing, avremmo preferito una soluzione free da eventualmente arricchire, piuttosto che un periodo di prova.
+
 
 \subsubsection{PandoraBots}
+PandoraBots offre un servizio di sviluppo di bot molto profondo e personalizzabile. Il tutto è basato su \textbf{AIML (Artificial Intelligent MarkUp Language)}, un’estensione di XML che si è costretti ad imparare se si vuole metter mano a questa piattaforma. Difatti il servizio offerto è quasi solamente dato da interazione con Editor direttamente sul sito. 
+\begin{center}
+\makebox[\textwidth][c]{%
+\includegraphics[width=1.2\textwidth]{pandorabots}
+}
+\footnotesize{AIML Tree view }
+\end{center}
 \paragraph{Implementazione}
+In prima fase è necessario creare un bot e dargli un nome. All’interno possiamo trovare 5 pagine principali, rispettivamente Bot info (modifica informazioni del bot), Train (parlare col bot e cambiare risposte senza entrare in editor), Files (editor di AIML ottimizzato), Log (dove è possibile vedere le singole interazioni col bot) e ClubHouse (possibile pubblicare il proprio bot per farlo parlare con la comunitá). 
+Senza andare troppo nel dettaglio con la descrizione del linguaggio AIML (che è stato necessario apprendere), si è dovuto metter mano ai tag in stile XML. <Pattern> (cosa dice l’utente), <Template> (la risposta desiderata a un pattern), <star/> (per “catturare” un input utente) sono solo alcuni dei possibili strumenti che offre questo linguaggio. È possibile creare dei contesti per il quale è possibile richiamare altri template, oppure creare argomenti in cui è possibile “entrare” per dare delle risposte specifiche, appunto in base all’argomento. Il tutto condito dalla possibilitá di aggiungere recursioni o condizioni come un normale linguaggio di programmazione. Queste funzioni base sono servite per creare un semplice bot che riconoscesse localitá e data di una domanda sul tempo, rimandando a un contesto e creando un argomento per chiedere singolarmente data o localitá. Grave mancanza è l’impossibilitá o l’estrema difficoltá di usare del contenuto dinamico, limitato a prendere stringhe da file. 
+
 \paragraph{Valutazione}
 \begin{itemize}
-\item \textit{Facilitá di progettazione}: \textbf{9} \\
-\item \textit{Tempo di implementazione}: \textbf{9} \\
-\item \textit{Profondità}: \textbf{9} \\
-\item \textit{Persistenza della memoria}: \textbf{9} \\
-\item \textit{Pricing strategies}: \textbf{9} \\
-\item \textit{Piattaforme}: \textbf{9} \\
-\item \textit{Disponibilitá di SDK}: \textbf{9} \\
+\item \textit{Facilitá di progettazione}: \textbf{5} \\ È stato necessario apprendere AIML per poter cominciare a far qualcosa
+\item \textit{Tempo di implementazione}: \textbf{7} \\ Una volta apprese le basi di AIML non è stato particolarmente lungo il tempo di sviluppo, 3-4 ore probabilmente
+\item \textit{Profondità}: \textbf{8} \\ Al contrario di altre piattaforme, con pandorabots è possibile avere il pieno controllo del proprio bot. Invece scarno per quanto riguarda le funzionalitá accessorie
+\item \textit{Persistenza della memoria}: \textbf{10} \\ Grazie alle peculiaritá di AIML è possibile operare come un vero linguaggio, disponendo appunto di costanti e variabili (globali/locali) che si possono manipolare come si vuole
+\item \textit{Pricing strategies}: \textbf{8} \\ Lo sviluppo è totalmente gratuito, ma dopo le 1000 interazioni al mese, scatta il tassametro. Possibilitá di esportare il proprio bot localmente e metterlo sul proprio sito
+\item \textit{Piattaforme}: \textbf{8} \\ Molte piattaforme supportate come per gli altri frameWork (compreso telegram)
+\item \textit{Disponibilitá di SDK}: \textbf{7} \\ Disponibili i soliti Java, Node.js, Python per semplificare l’interazione con l’API di PandoraBots
 \end{itemize}
 \paragraph{Commento personale}
+Di per sé, PandoraBots offre degli strumenti approfonditi per lo sviluppo “dell'intelligenza” sotto al nostro bot, essendo costretti a progettare totalmente da 0 il riconoscimento degli intenti e il flow in generale. La limitazione piú importante è senza dubbio l’impossibilitá di poter sfruttare degli elementi dinamici qualsiasi, o anche solo richiamare API esterne, a noi feature indispensabile. 
 
 \subsubsection{GupShup.io}
 \paragraph{Implementazione}
+Alla creazione del bot viene chiesto di scegliere innanzitutto se voler manualmente programmare il proprio bot oppure utilizzare un’interfaccia grafica. Nel primo caso si viene reindirizzati ad un IDE, nel quale è possibile partire da zero oppure scegliere un template di partenza e sviluppare quindi su una base già scritta. Nel secondo caso si viene guidati attraverso una GUI piuttosto user friendly, nel quale è possibile sviluppare un bot attraverso un metodo grafico, seppur con funzioni limitate alle basi. Ho ritenuto opportuno testare la prima opzione: qui ho avuto la possibilità di configurare un bot che usasse le funzioni già implementate con DialogFlow con l’utilizzo di un access token. In seguito è stato possibile testare il bot attraverso un proxybot proprietario di GupShup. 
+
 \paragraph{Valutazione}
 \begin{itemize}
-\item \textit{Facilitá di progettazione}: \textbf{9} \\
-\item \textit{Tempo di implementazione}: \textbf{9} \\
-\item \textit{Profondità}: \textbf{9} \\
-\item \textit{Persistenza della memoria}: \textbf{9} \\
-\item \textit{Pricing strategies}: \textbf{9} \\
-\item \textit{Piattaforme}: \textbf{9} \\
-\item \textit{Disponibilitá di SDK}: \textbf{9} \\
+\item \textit{Facilitá di progettazione}: \textbf{8} \\ è opportuno sottolineare che il sito offre due esperienze di progettazione completamente opposte: da un lato viene data completa gestione allo sviluppatore, con conseguenti maggiori opzioni, mentre dall’altro viene offerta un’esperienza radicalmente più semplice ma comunque efficace per bot meno complessi.
+\item \textit{Tempo di implementazione}: \textbf{9} \\ il giudizio è chiaramente riferito all’opzione grafica, mentre non è possibile dare un giudizio in merito allo sviluppo effettivo usando la prima opzione
+\item \textit{Profondità}: \textbf{7} \\  le due opzioni offrono profondità diametralmente opposte: l’uso dell’IDE permette di avere una completa libertà, mentre l’uso dell’opzione grafica è incredibilmente limitante (sebbene sia effettivamente consigliato solo per uno sviluppo di base)
+\item \textit{Persistenza della memoria}: \textbf{6} \\ avendo testato attraverso il bot di DialogFlow il giudizio è il medesimo
+\item \textit{Pricing strategies}: \textbf{8} \\  piattaforma completamente gratuita e senza vincoli di progettazione, possibilitá di richiedere informazione di prezzo personalizzate a seconda delle interazioni (business type)
+\item \textit{Piattaforme}: \textbf{9} \\ comprende pressoché tutte le piattaforme più diffuse
+\item \textit{Disponibilitá di SDK}: \textbf{7} \\ l’IDE permette di usare JavaScript e Node.js
 \end{itemize}
+
 \paragraph{Commento personale}
+Il servizio è ottimo ed è utile sia all’utente più navigato sia ad un utente meno esperto. L’integrazione con DialogFlow è assolutamente di centrale importanza, permettendo ad un bot sviluppato con tale servizio di essere implementato senza problemi anche su GupShup.
+
 
 \subsubsection{Microsoft Bot Framework}
-\paragraph{Implementazione}
-\paragraph{Valutazione}
-\begin{itemize}
-\item \textit{Facilitá di progettazione}: \textbf{9} \\
-\item \textit{Tempo di implementazione}: \textbf{9} \\
-\item \textit{Profondità}: \textbf{9} \\
-\item \textit{Persistenza della memoria}: \textbf{9} \\
-\item \textit{Pricing strategies}: \textbf{9} \\
-\item \textit{Piattaforme}: \textbf{9} \\
-\item \textit{Disponibilitá di SDK}: \textbf{9} \\
-\end{itemize}
-\paragraph{Commento personale}
-
+Il frameWork di windows comprende molti strumenti, ma ci offre un’esperienza troppo macchinosa e non prettamente indirizzata alla progettazione del chatBot come le altre piattaforme. Prima di tutto occorre sottolineare che l’applicazione offre 3 servizi principali:
+\begin{enumerate}
+\item Azure Bot Service - fornisce le risorse necessarie per l’hosting (a pagamento), il deployment e l’editing del bot (tramite editor o interfacciandosi a IDE tipo VisualStudio)
+\item Bot Builder - insieme di SDK utili alla costruzione del bot. Nativamente supporta C\# e Node.js, mentre si ha la possibilitá di usare tutti gli altri tipi di linguaggi tramite una REST api
+\item Bot FrameWork Portal - portale principale di accesso al Framework, permette la manipolazione delle informazioni di base del bot, la creazione di nuovi e prevede una piattaforma di testing
+\end{enumerate}
+La costruzione di un bot all’interno di Microsoft Bot Framework avviene solo ed esclusivamente tramite programmazione “vecchia maniera”, ovvero tramite progettazione su carta e sviluppo con un linguaggio di programmazione a piacere, gestendo le domande e il flow delle risposte a piacimento. Non c’è ovviamente nessun Intent Recognition di base, a meno che non si usino delle chiamate di API  NLU (LUIS di Microsoft - a pagamento ovviamente - o esterne). Grazie alla possibilitá di poter sviluppare con righe di codice il proprio bot è ovviamente favorita la personalizzazione e il controllo. È presente inoltre un connector service che collega il codice con qualsiasi tipo di applicazione input/output vogliamo. Sono ovviamente presenti degli strumenti di test e debug indirizzati in particolare a questo argomento. Nota molto positiva è la ricca documentazione, anche perché nella sezione di design del bot è presente la formalizzazione di alcuni concetti molto significativi nello studio dell’efficacia di un bot.
+\begin{center}
+\makebox[\textwidth][c]{%
+\includegraphics[width=1.2\textwidth]{mbf}
+}
+\footnotesize{Microsoft Bot FrameWork overview}
+\end{center}
+\paragraph{Conclusioni}
+ Ci è stato chiesto di “esplorare” il neonato mondo dei bot, in particolare ChatBot alla ricerca della migliore alternativa (in base a parametri di personale importanza) di sviluppo dello stesso. Pur essendo informatici, non avendo paura della possibilitá di tuffarsi sull’apprendimento di un linguaggio di programmazione a noi non noto e apprezzando il poter avere la libertá di scrivere codice, consideriamo questo approccio poco adatto al nostro progetto in quanto “”obsoleto”” e poco innovativo, oltre a portarci via potenzialmente troppo tempo.
+ 
 \subsubsection{Wit.ai}
 Dopo aver consultato la guida per iniziare e aver cominciato a creare qualcosa, mi son reso conto che mancavano delle funzioni significative. Ho appreso che facebook sta chiudendo la piattaforma in modo da integrare il “natural language processing (NPL)  tools into Messenger Platform 2.1”
 
@@ -198,12 +264,12 @@ Dopo aver consultato la guida per iniziare e aver cominciato a creare qualcosa, 
 \paragraph{Implementazione}
 Nel servizio è presente solo la possibilitá di maneggiare la struttura del bot solo tramite GUI. Interfaccia molto semplice, presenza di “Blocks” che permettono di modellare l’automatizzazione di azioni (presa input, richieste http, stampa video,..) e “Groups” nella quale racchiudere a piacimento questi blocks. I suddetti blocchi possono essere concatenati in sequenze a seconda del bisogno, ed esistono strutture che permettono di maneggiare queste transizioni (da blocco a blocco - da sequenza a sequenza) in modo quasi intuitivo e completo. Questi blocchi possono avere una vasta gamma di eventi di trigger, ma principalmente vengono richiamati dalla sezione ”””””AI””””” che permette di inserire delle frasi (con “riconoscimento del contesto”)  ed eseguire di conseguenza un dato blocco. Dopo aver capito i funzionamenti base della piattaforma dunque è bastato creare un singolo blocco con la giusta presa di input dall’utente e una richiesta http per creare il bot desiderato. Da notare l’impossibilitá di testare il bot su una qualche console ma solo direttamente sulla propria pagina facebook (alla quale si deve per forza collegare il bot). Per completezza del documento, in questa piattaforma è stato necessario ri-adattare il codice in Node.js descritto all’inizio di questo testo, in modo che ricevesse del codice Json in entrata e uscita leggermente diversi, come scritto sulla repository di github.
 
-\begin{figure}
+\begin{center}
 \makebox[\textwidth][c]{%
 \includegraphics[width=1.2\textwidth]{chatfuel}
 }
-\caption{ \footnotesize{Panoramica della piattaforma (user input plugin)}}
-\end{figure}
+\footnotesize{Panoramica della piattaforma (user input plugin)}
+\end{center}
 
 \paragraph{Valutazione}
 \begin{itemize}
@@ -216,23 +282,36 @@ Nel servizio è presente solo la possibilitá di maneggiare la struttura del bot
 \item \textit{Disponibilitá di SDK}: \textbf{9} \\ n/a
 \end{itemize}
 \paragraph{Commento personale}
+Con questo framework non è possibile creare bot troppo sofisticati, in quanto non sono possibili certe azioni come il riconoscimento automatico di parametri in una frase complessa data dall’utente. È invece, a mio parere, molto consigliato per chi deve gestire una pagina facebook con chat automatica del tipo “botta e risposta”. Fornisci i comandi e l’applicazione esegue delle azioni. Stop. Carina la presenza (anche se non richiesta come requisito nelle nostre specifiche) dell’integrazione di vari tool di analisi della crescita e popolaritá, come giustamente mi aspetto da una piattaforma sviluppata unicamente per un social network.
+
 
 \subsubsection{kitt.ai}
-\paragraph{Implementazione}
-\paragraph{Valutazione}
+\paragraph{Implementazione} 
+Dopo un’accurata lettura dei docs di riferimento, è stato possibile iniziare a sviluppare il bot di test. Per prima cosa si è dovuto aggiungere alla workZone i nodi di ChatIn e ChatOut (per impostare l’inizio e fine del flow), successivamente in mezzo a essi il nodo router (un piú o meno semplice if condizionato, collegato a ogni enter node (condizioni di entrata del ramo) che permette la scelta del ramo nei vari casi di funzionamento. Questi casi possono essere piú o meno complessi. Per il parsing della frase d’entrata data dall’utente è stato necessario creare un semplice riconoscimento d’intenti con la piattaforma per NLU (natural language understanding) direttamente da kitt.ai (anche se è possibile collegare diverse NLU, tra cui anche dialogflow). Una volta che sono stati fatti i vari rami di condizione, è bastato aggiungere le varie risposte e un minimo di codice per costruire il Json da passare alla nostra richiesta http. Per questa richiesta è possibile aggiungere un nodo http request che, settando alcuni parametri fondamentali, non ha avuto problemi a consegnarci la risposta che aspettavamo dalla funzione attiva su google cloud. Questa volta è stato necessario modificare leggermente l’output del cloud poiché era scomodo inviare un Json, comodo invece una semplice stringa. 
+
+\begin{center}
+\makebox[\textwidth][c]{%
+\includegraphics[width=1.2\textwidth]{kittai}
+}
+\footnotesize{kitt.ai GUI overview}
+\end{center}
+
+\paragraph{Valutazione} 
 \begin{itemize}
-\item \textit{Facilitá di progettazione}: \textbf{9} \\
-\item \textit{Tempo di implementazione}: \textbf{9} \\
-\item \textit{Profondità}: \textbf{9} \\
-\item \textit{Persistenza della memoria}: \textbf{9} \\
-\item \textit{Pricing strategies}: \textbf{9} \\
-\item \textit{Piattaforme}: \textbf{9} \\
-\item \textit{Disponibilitá di SDK}: \textbf{9} \\
+\item \textit{Facilitá di progettazione}: \textbf{8} \\ Dopo una lettura delle docs (piú che altro per capire i vari formati dei messaggi e il funzionamento dei nodi) non è stato assolutamente difficile crearlo. Molto bella e funzionale la GUI, che ti permette di avere una visione chiara del flow del codice
+\item \textit{Tempo di implementazione}: \textbf{8} \\ 3 ore, la maggior parte speso per varie prove e test
+\item \textit{Profondità}: \textbf{9} \\ possibile programmazione in javascript direttamente nel flusso tramite alcuni nodi, integrazione nativa di alcune API e possibilitá di aggiungere le tue, comodo debug da programmare come vuoi e vasta gamma di nodi funzione per poter creare quello che vuoi
+\item \textit{Persistenza della memoria}: \textbf{10} \\ Ho trovato molto semplice e comodo “giocare” con le variabili globali o locali (del messaggio ricevuto). La docs è molto dettagliata su come usare e creare le varie entitá
+\item \textit{Pricing strategies}: \textbf{8} \\ Il framework è in fase beta, ma è possibile richiedere e ricevere una key apposta. Gratis fino a un certo numero di interrogazioni, poi richiesta il passaggio a un piano a pagamento
+\item \textit{Piattaforme}: \textbf{10} \\  la maggior parte delle piattaforme Business e Private sono supportate
+\item \textit{Disponibilitá di SDK}: n/a
 \end{itemize}
 \paragraph{Commento personale}
+Nell’insieme questo framework mi sembra un buon candidato alla fase finale del nostro progetto, poiché concilia facilitá di utilizzo con possibilitá abbastanza profonda di personalizzazione. Bisogna vedere come si comporta con applicazioni piú grandi. Purtroppo è ancora in fase beta, quindi il suo futuro è abbastanza incerto, ma è stato comunque interessante poter apprendere una logica diversa su cui è stato possibile approfondire il concetto di ChatBot.
+
 
 \subsection{Commenti Finali e decisione}
-
+Non c'é molto da dire, il framework che ci ha convinto di piú é \textbf{DialogFlow}, che unisce alla semplicitá e intuitivitá di sviluppo del bot a una grande profonditá di azioni che é possibile compiere, senza rinunciare a svariati tool di apprendimento e gestione che a noi sono risultati comodi. Note di merito vanno comunque a PandoraBots, che permette di costruirsi il proprio riconoscimento d'intenti, e kitt.ai, che utilizza la migliore interfaccia tra tutti i sopracitati ambienti. 
 
 \section{Costruzione bot di Demo}
 \subsection{ServerSide}
@@ -245,7 +324,7 @@ Nel servizio è presente solo la possibilitá di maneggiare la struttura del bot
 \begin{thebibliography}{9}
 \url{https://dialogflow.com} \\
 \url{https://github.com/Roncax/PolimiChatBot} \\
-\url{https://dialogflow.com} \\
+\url{https://docs.microsoft.com/en-us/bot-framework/bot-service-design-principles} \\
 \url{https://dialogflow.com} \\
 \url{https://dialogflow.com} \\
 \url{https://dialogflow.com} \\

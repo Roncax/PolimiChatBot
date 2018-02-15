@@ -8,47 +8,45 @@
 \contentsline {section}{\numberline {2}Requisiti non funzionali}{5}
 \contentsline {subsection}{\numberline {2.1}Prestazioni \and Price strategies}{5}
 \contentsline {subsection}{\numberline {2.2}Privacy e persistenza}{6}
-\contentsline {subsection}{\numberline {2.3}Motore di Scraping}{6}
+\contentsline {subsection}{\numberline {2.3}Scraping}{6}
 \contentsline {section}{\numberline {3}Flow}{6}
-\contentsline {section}{\numberline {4}Ricerca del FrameWork: Bot di test}{6}
-\contentsline {subsection}{\numberline {4.1}Requisiti}{6}
-\contentsline {subsection}{\numberline {4.2}Parametri di valutazione}{6}
-\contentsline {paragraph}{Bot}{7}
-\contentsline {paragraph}{FrameWork}{7}
-\contentsline {subsection}{\numberline {4.3}Descrizione bot}{7}
-\contentsline {subsection}{\numberline {4.4}Deployment description}{7}
-\contentsline {subsubsection}{\numberline {4.4.1}DialogFlow}{8}
-\contentsline {paragraph}{Implementazione}{8}
-\contentsline {paragraph}{Valutazione}{8}
-\contentsline {paragraph}{Commento personale}{9}
-\contentsline {subsubsection}{\numberline {4.4.2}FlowXo}{9}
-\contentsline {paragraph}{Implementazione}{9}
-\contentsline {paragraph}{Valutazione}{9}
-\contentsline {paragraph}{Commento personale}{10}
-\contentsline {subsubsection}{\numberline {4.4.3}PandoraBots}{10}
-\contentsline {paragraph}{Implementazione}{10}
-\contentsline {paragraph}{Valutazione}{10}
-\contentsline {paragraph}{Commento personale}{10}
-\contentsline {subsubsection}{\numberline {4.4.4}GupShup.io}{10}
-\contentsline {paragraph}{Implementazione}{10}
-\contentsline {paragraph}{Valutazione}{11}
-\contentsline {paragraph}{Commento personale}{11}
-\contentsline {subsubsection}{\numberline {4.4.5}Microsoft Bot Framework}{11}
-\contentsline {paragraph}{Implementazione}{11}
-\contentsline {paragraph}{Valutazione}{11}
-\contentsline {paragraph}{Commento personale}{12}
-\contentsline {subsubsection}{\numberline {4.4.6}Wit.ai}{12}
-\contentsline {subsubsection}{\numberline {4.4.7}ChatFuel}{12}
-\contentsline {paragraph}{Implementazione}{12}
-\contentsline {paragraph}{Valutazione}{12}
-\contentsline {paragraph}{Commento personale}{13}
-\contentsline {subsubsection}{\numberline {4.4.8}kitt.ai}{13}
-\contentsline {paragraph}{Implementazione}{13}
-\contentsline {paragraph}{Valutazione}{13}
-\contentsline {paragraph}{Commento personale}{14}
-\contentsline {subsection}{\numberline {4.5}Commenti Finali e decisione}{14}
-\contentsline {section}{\numberline {5}Costruzione bot di Demo}{14}
-\contentsline {subsection}{\numberline {5.1}ServerSide}{14}
-\contentsline {subsection}{\numberline {5.2}UX (DialogFlow)}{14}
-\contentsline {subsection}{\numberline {5.3}Limitazioni}{14}
-\contentsline {section}{\numberline {6}Futuri Sviluppi}{14}
+\contentsline {section}{\numberline {4}Ricerca del FrameWork: Bot di test}{13}
+\contentsline {subsection}{\numberline {4.1}Requisiti}{13}
+\contentsline {subsection}{\numberline {4.2}Parametri di valutazione}{13}
+\contentsline {paragraph}{Bot}{13}
+\contentsline {paragraph}{FrameWork}{14}
+\contentsline {subsection}{\numberline {4.3}Descrizione bot}{14}
+\contentsline {subsection}{\numberline {4.4}Deployment description}{14}
+\contentsline {subsubsection}{\numberline {4.4.1}DialogFlow}{14}
+\contentsline {paragraph}{Implementazione}{14}
+\contentsline {paragraph}{Valutazione}{15}
+\contentsline {paragraph}{Commento personale}{16}
+\contentsline {subsubsection}{\numberline {4.4.2}FlowXo}{16}
+\contentsline {paragraph}{Implementazione}{16}
+\contentsline {paragraph}{Valutazione}{16}
+\contentsline {paragraph}{Commento personale}{17}
+\contentsline {subsubsection}{\numberline {4.4.3}PandoraBots}{17}
+\contentsline {paragraph}{Implementazione}{17}
+\contentsline {paragraph}{Valutazione}{18}
+\contentsline {paragraph}{Commento personale}{18}
+\contentsline {subsubsection}{\numberline {4.4.4}GupShup.io}{18}
+\contentsline {paragraph}{Implementazione}{18}
+\contentsline {paragraph}{Valutazione}{19}
+\contentsline {paragraph}{Commento personale}{19}
+\contentsline {subsubsection}{\numberline {4.4.5}Microsoft Bot Framework}{20}
+\contentsline {paragraph}{Conclusioni}{21}
+\contentsline {subsubsection}{\numberline {4.4.6}Wit.ai}{21}
+\contentsline {subsubsection}{\numberline {4.4.7}ChatFuel}{21}
+\contentsline {paragraph}{Implementazione}{21}
+\contentsline {paragraph}{Valutazione}{22}
+\contentsline {paragraph}{Commento personale}{23}
+\contentsline {subsubsection}{\numberline {4.4.8}kitt.ai}{23}
+\contentsline {paragraph}{Implementazione}{23}
+\contentsline {paragraph}{Valutazione}{24}
+\contentsline {paragraph}{Commento personale}{25}
+\contentsline {subsection}{\numberline {4.5}Commenti Finali e decisione}{25}
+\contentsline {section}{\numberline {5}Costruzione bot di Demo}{25}
+\contentsline {subsection}{\numberline {5.1}ServerSide}{25}
+\contentsline {subsection}{\numberline {5.2}UX (DialogFlow)}{25}
+\contentsline {subsection}{\numberline {5.3}Limitazioni}{25}
+\contentsline {section}{\numberline {6}Futuri Sviluppi}{25}
