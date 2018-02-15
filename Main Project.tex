@@ -314,21 +314,40 @@ Nell’insieme questo framework mi sembra un buon candidato alla fase finale del
 Non c'é molto da dire, il framework che ci ha convinto di piú é \textbf{DialogFlow}, che unisce alla semplicitá e intuitivitá di sviluppo del bot a una grande profonditá di azioni che é possibile compiere, senza rinunciare a svariati tool di apprendimento e gestione che a noi sono risultati comodi. Note di merito vanno comunque a PandoraBots, che permette di costruirsi il proprio riconoscimento d'intenti, e kitt.ai, che utilizza la migliore interfaccia tra tutti i sopracitati ambienti. 
 
 \section{Costruzione bot di Demo}
+Dopo aver quindi svolto un lungo lavoro di ricerca abbiamo le conoscenze necessarie per costruire la demo del bot. Appunto perchè si tratta di una prova optiamo per una versione "limitata" del progetto, che però ci permette di utilizzare e consolidare le conosceze acquisite nella parte precedente. Tutte le limitazioni rispetto all'idea originale sono presenti nella sezione apposita, mentre nelle prime due sono descritti in linea di massima le principali componenti e le nostre soluzioni di implementazione. Avendo ben definito queste due parti, ci è venuto naturale dividerci i compiti tra chi si sarebbe occupato di scrivere il codice nella parte server (Stefano) e chi si sarebbe invece dedicato alla struttura della conversazione (Paolo).
+
 \subsection{ServerSide}
+
+
 \subsection{UX (DialogFlow)}
+La parte in cui viene modellata la conversazione macchina-utente è interamente contenuta in DialogFlow. In buona parte la piattaforma è descritta nella sezione dedicata alla scelta del framework. Si è cercato di seguire il più fedelmente possibile lo schema descritto sopra di interazione tra i contesti. Usando DialogFlow non ho avuto molta difficoltà a creare le relazioni tra intenti che cercavamo, più difficile invece è stato creare i contesti e utilizzarli in modo efficace (con il passaggio di parametri sopra descritto nel passaggio tra contesti). Il riconoscimento di parametri è molto valido, se si tratta di parametri di sistema (e.g.\ data, ora, period), mentre è stato necessario crearne di personali per aule e corsi di studi. Questa ultima parte è abbastanza noiosa in quanto, per avere la maggior accuratezza possibile, dovresti inserire tutti i possibili valori con i relativi sinonimi (a meno che non voglia rischiare di riconoscere parametri non corretti). Tutto sommato però, dopo aver passato qualche ora a ragionare sulle diverse relazioni tra contesti e intenti, è venuto fuori un bot completo, come appunto descritto nello schema a oggetti.  
+
 \subsection{Limitazioni}
+Ecco i principali punti che descrivono in cosa questa demo si discosta dal progetto completo:
+\begin{itemize}
+\item Motore di Scraping costruito "ad-Hoc" (informazioni non dinamiche), cioè posto come formato json come costante all'interno del codice sul server
+\item Implementata solo parte utenti NON loggati
+\item Persistenza assente
+\item  Non completata la parte server di orari lezioni, implementata solo su dialogflow
+\end{itemize}
 
 \section{Futuri Sviluppi}
+Cosa ci aspetta il futuro? Ecco cosa ci piacerebbe implementare e come intendiamo farlo:
+\begin{itemize}
+\item Completare la parte degli utenti non loggati con tutte le sue parti funzionanti nel codice server
+\item riuscire a "staccare" il codice dalle informazioni del nostro scraping 
+\item utilizzare uno scraping che permetta di manipolare informazioni dinamiche: può essere comunque utilizzato un motore che "crei" un json in modo da non dover cambiare la struttura del nostro codice.
+\item trovare la migliore soluzione per quanto riguarda la memorizzazione dei dati. Si pensava inizialmente di mettere tutto dentro un file di testo sotto una voce univoca che rappresenta l'utente 
+\item implementare il riconoscimento utente tramite controllo codice univoco della piattaforma (telegram o altro). A seconda delle informazioni che troviamo l'esperienza verrà personalizzata
+\item cercare soluzioni per ottenere un livello di pivacy accettabile in modo da poter richiedere informazioni delicate quali codice persona e password
+\item trovare un modo efficace per utilizzare queste informazioni tramite il motore di scraping sopra citato. Ovviamente devono essere utilizzate in modo da mantenere il livello di privacy minimo richiesto
+\end{itemize}
 
 % Bibliografia
 \begin{thebibliography}{9}
-\url{https://dialogflow.com} \\
-\url{https://github.com/Roncax/PolimiChatBot} \\
-\url{https://docs.microsoft.com/en-us/bot-framework/bot-service-design-principles} \\
-\url{https://dialogflow.com} \\
-\url{https://dialogflow.com} \\
-\url{https://dialogflow.com} \\
-bibliografia, software usati, github repo.
+\textbf{DialogFow}: \url{https://dialogflow.com} \\
+\textbf{Repository GitHub}: \url{https://github.com/Roncax/PolimiChatBot} \\
+\textbf{Useful ChatBot design principles}: \url{https://docs.microsoft.com/en-us/bot-framework/bot-service-design-principles} \\
 \end{thebibliography}
 
 \end{document}
