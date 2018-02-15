@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.29)  15 FEB 2018 18:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.29)  15 FEB 2018 19:57
 entering extended mode
 **"./Main Project.tex"
 ("Main Project.tex"
@@ -407,7 +407,7 @@ File: pdftex.def 2017/06/24 v1.0g Graphics/color driver for pdftex
 \Gin@req@height=\dimen104
 \Gin@req@width=\dimen105
 )
-("C:\Users\Roncax\Documents\Git Project\PolimiChatBot\build\Main Project.aux")
+("A:\Documents\Git Project\PolimiChatBot\build\Main Project.aux")
 \openout1 = `"Main Project.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
@@ -499,7 +499,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [1
 
 {C:/Users/Roncax/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-("C:\Users\Roncax\Documents\Git Project\PolimiChatBot\build\Main Project.toc"
+("A:\Documents\Git Project\PolimiChatBot\build\Main Project.toc"
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 4.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -692,41 +692,40 @@ e 295.
  [23] [24 <./kittai.png>]
 [25] [26]
 
-LaTeX Warning: Empty `thebibliography' environment on input line 351.
+LaTeX Warning: Empty `thebibliography' environment on input line 354.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 348--351
+Underfull \hbox (badness 10000) in paragraph at lines 351--354
 
  []
 
-[27]
-("C:\Users\Roncax\Documents\Git Project\PolimiChatBot\build\Main Project.aux") 
-) 
+[27] ("A:\Documents\Git Project\PolimiChatBot\build\Main Project.aux") ) 
 Here is how much of TeX's memory you used:
  3001 strings out of 493312
- 38721 string characters out of 3138896
- 108221 words of memory out of 3000000
+ 38578 string characters out of 3138896
+ 109221 words of memory out of 3000000
  6482 multiletter control sequences out of 15000+200000
  15756 words of font info for 36 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,7n,25p,1558b,262s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Roncax\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
-ecrm0800.pk> <C:\Users\Roncax\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen
-\ec\dpi600\ectt1000.pk> <C:\Users\Roncax\AppData\Local\MiKTeX\2.9\fonts\pk\ljfo
-ur\jknappen\ec\dpi600\ecti1000.pk> <C:\Users\Roncax\AppData\Local\MiKTeX\2.9\fo
-nts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\Roncax\AppData\Local\Mi
-KTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1000.pk> <C:\Users\Roncax\AppDa
-ta\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\R
-oncax\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti0900.pk> 
-<C:\Users\Roncax\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ec
-rm0900.pk> <C:\Users\Roncax\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\e
-c\dpi600\ecbx0900.pk> <C:\Users\Roncax\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
-\jknappen\ec\dpi600\ecrm1000.pk> <C:\Users\Roncax\AppData\Local\MiKTeX\2.9\font
-s\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\Roncax\AppData\Local\MiKT
-eX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on "C:\Users\Roncax\Documents\Git Project\PolimiChatBot\build\Ma
-in Project.pdf" (27 pages, 2533519 bytes).
+ <C:\Us
+ers\Roncax\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800
+.pk> <C:\Users\Roncax\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi6
+00\ectt1000.pk> <C:\Users\Roncax\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknap
+pen\ec\dpi600\ecti1000.pk> <C:\Users\Roncax\AppData\Local\MiKTeX\2.9\fonts\pk\l
+jfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\Roncax\AppData\Local\MiKTeX\2.9
+\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1000.pk> <C:\Users\Roncax\AppData\Local
+\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\Roncax\Ap
+pData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti0900.pk> <C:\User
+s\Roncax\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0900.p
+k> <C:\Users\Roncax\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
+\ecbx0900.pk> <C:\Users\Roncax\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappe
+n\ec\dpi600\ecrm1000.pk> <C:\Users\Roncax\AppData\Local\MiKTeX\2.9\fonts\pk\ljf
+our\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\Roncax\AppData\Local\MiKTeX\2.9\f
+onts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on "A:\Documents\Git Project\PolimiChatBot\build\Main Project.pd
+f" (27 pages, 2535110 bytes).
 PDF statistics:
  755 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
