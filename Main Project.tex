@@ -4,29 +4,39 @@
 \usepackage[italian]{babel} % lingua del documento
 \usepackage{url} 			% per scrivere gli indirizzi Internet
 \usepackage{graphicx}		% per immagini
+\usepackage{afterpage}
 
 \begin{document}
-
+\renewcommand\refname{References \& Documents}
 \author{Paolo Roncaglioni \and Stefano Sanitate}
-\title{Progetto Ingegneria Informatica - Documento di Specifica}
+\title{\textbf{Progetto Ingegneria Informatica \\ Documento di Specifica}}
+\date{\parbox{\linewidth}{\centering%
+  \today\endgraf\bigskip\endgraf\bigskip
+  \textbf{Supervisors}\endgraf\bigskip
+  Maristella Matera \hspace*{1cm} Vittorio Zaccaria \hspace*{1cm} Florian Daniel}}
 \maketitle
 \newpage
 
 \begin{abstract}
-Questo documento di specifica racchiude in modo organizzato tutte le ricerche, informazioni e prove che nel corso di questo progetto abbiamo raccolto, creato, analizzato. Dopo una prima parte in cui viene descritto il funzionamento generale del Bot che abbiamo pensato di progettare, si passa ai dettagli e criteri dei test che abbiamo eseguito per poter fare un deployment di una prima semplice demo del progetto descritto. La \textbf{pagina successiva} é una rappresentazione grafica di \textit{cosa} per noi é un chatBot, formalizzando i concetti raccolti e formulati per l'intero corso dello sviluppo del progetto. Si fará riferimento a questa immagine per il resto del documento. 
+Questo documento di specifica descrive il culmine delle ricerche riguardo la tecnologia dei ChatBot e dei framework ad essi dedicati. Raccolte quindi informazioni su servizi disponibili e stato dell'arte abbiamo deciso di concretizzare la ricerca in una demo di un Bot che risponde alle esigenze di uno studente del Politecnico di Milano. Dopo una prima parte in cui viene descritto il funzionamento generale del Bot che abbiamo pensato di progettare, si passa ai dettagli e criteri dei test che abbiamo eseguito per poter fare un deployment di una prima semplice demo del progetto descritto. La \textbf{pagina successiva} é una rappresentazione grafica di \textit{cosa} per noi é un chatBot, formalizzando i concetti raccolti e formulati per l'intero corso dello sviluppo del progetto.  
 \end{abstract}
 
-\tableofcontents	%generazione indice
+\tableofcontents	
 
+\afterpage{%
+\thispagestyle{empty}
 \begin{figure}
 \vspace*{-3cm} 
+\hspace*{-1cm}
 \centering
 \includegraphics[width=2\textwidth, angle =90 ]{botofficial}
 \end{figure}
+\clearpage
+}
 \newpage
 
 \section{Generalitá}
-Il progetto é ovviamente iniziato con la delineazione dello scopo del bot, cioé che cos'avrebbe dovuto fare e a chi potrebbe essere stato utile. In un primo momento son venute fuori idee interessanti, ma magari giá presenti (e.g.\ bot orari Trenitalia) e difficilmente migliorabili.
+Il progetto é ovviamente iniziato con la delineazione dello scopo del bot, cioé che funzionalitá avrebbe dovuto soddisfare e il tipo di utenti che potrebbero servirsene. In un primo momento son venute fuori idee interessanti, ma magari giá presenti (e.g.\ bot orari Trenitalia) e difficilmente migliorabili.
 Dopo aver quindi analizzato varie possibilitá di scelta delle funzionalitá del bot, abbiamo infine pensato di progettarne uno a tema Politecnico, che racchiuda un insieme di semplici tool allo studente (o al professore) nella gestione della propria vita universitaria. 
 
 \subsection{Scopo}
@@ -34,20 +44,20 @@ La definizione delle caratteristiche funzionali inizia col dividerle in utenti c
 
 \paragraph{Logged Users}
 \begin{enumerate}
-\item \textit{Orario universitario}: richiesta orario delle lezioni, previo inserimento di tutti quei parametri che servono per identificare il corso (nome, corso di studio, sede)
-\item \textit{Aule libere}: richiesta elenco aule libere, previa scelta del giorno e orario 
-\item \textit{Orario aula}: richiesta elenco corsi e orari di una specifica aula (utile per controllare velocemente se l'aula davanti a te é libera)
-\item \textit{Posizione aula}: restituisce semplicemente l'edificio in cui é l'aula (utile per le matricole)
-\item \textit{Calendario accademico}: richiesta orario accademico, ti manda il pdf presente sul sito del Poli 
+\item \textit{Orario universitario}: richiesta orario delle lezioni, previo inserimento di tutti quei parametri che servono per identificare il corso (nome, corso di studio, sede).
+\item \textit{Aule libere}: richiesta elenco aule libere, previa scelta del giorno e orario.
+\item \textit{Orario aula}: richiesta elenco corsi e orari di una specifica aula (utile per controllare velocemente se l'aula davanti a te é libera).
+\item \textit{Posizione aula}: restituisce semplicemente l'edificio in cui é l'aula (utile per le matricole).
+\item \textit{Calendario accademico}: richiesta orario accademico, manda il pdf presente sul sito del Politecnico.
 \end{enumerate}
 
 \paragraph{UnLogged Users}
 \begin{enumerate}
-\item \textit{Orario universitario personalizzato}: stessa cosa della funzionalitá parte utente loggato, ma con i dati a disposizione é possibile avere maggiore accuratezza e non é richiesto l'inserimento dei dati
-\item \textit{Esami}: richiesta elenco degli esami a cui ci si é iscritti
-\item \textit{Informazione esami}: informazioni su esami a cui si é iscritti (i.e.\ aula, orario) 
-\item \textit{Carriera didattica}: restituzione informazioni generali della propria carriera (e.g.\ media, crediti)
-\item \textit{Avvisi generici}: possibilitá di settare avvisi generici con qualsiasi evento di trigger (inizialmente solo uscita voti esami con relativa votazione)
+\item \textit{Orario universitario personalizzato}: stessa cosa della funzionalitá parte utente loggato, ma con i dati a disposizione é possibile avere maggiore accuratezza e non é richiesto l'inserimento dei dati.
+\item \textit{Esami}: richiesta elenco degli esami a cui ci si é iscritti.
+\item \textit{Informazione esami}: informazioni su esami a cui si é iscritti (i.e.\ aula, orario).
+\item \textit{Carriera didattica}: restituzione informazioni generali della propria carriera (e.g.\ media, crediti).
+\item \textit{Avvisi generici}: possibilitá di settare avvisi generici con qualsiasi evento di trigger (inizialmente pensata solo uscita voti esami con relativa votazione).
 \end{enumerate}
 
 \subsection{Personalitá}
@@ -57,30 +67,30 @@ Non sapremmo bene come prendere questa parte, poiché non ci é stato detto null
 Sotto questa voce vanno i requisiti e caratteristiche che impongono vincoli  allo sviluppo del bot, sotto diversi punti di vista. Per ogni problema si cercherá quindi una possibile soluzione di implementazione, che non andremo a sviluppare nella demo in quanto non riteniamo necessario in questo progetto approfondire ulteriormente.
 
 \subsection{Prestazioni \and Price strategies}
-Secondo il modello posto sopra, un bot in generale si puó rappresentare con due parti distinte, poste totalmente o in parte su un server esterno. La scelta del server influenzerá sicuramente il numero di interrogazioni che si possono fare, la velocitá di risposta e l'usabilitá in generale, a discapito del prezzo che la piattaforma di hosting ci fará pagare per avere questi servigi. Se si utilizza una soluzione "locale" in cui il proprio pc fa da server si avranno sicuramente degli svantaggi rispetto a una soluzione cloud, ma il prezzo sará nullo e le limitazioni (sulla carta) non esisterebbero. Ad ora, esplorando le varie possibili scelte, per la fase ti testing della demo é stato possibile sempre usufruire delle opzioni "free" della piattaforma di turno. Questo include sia UX che Hosting Server. Rientra in questa sezione anche la possibilitá di ridurre query rindondanti attraverso un minimo di \textit{caching}. Non é una parte da sottovalutare in quanto potrebbe risparmiarci un bel pó di interrogazioni inutili al sistema e migliorare l'efficienza generale. Si pensava quindi di usare inizialmente un'unico file di Json, che viene "guardato" dal codice ogni volta che giunge una nuova interrogazione, e aggiornato se i dati richiesti non sono presenti. É un'implementazione semplice di caching, ma per iniziare puó funzionare.  
+Secondo il modello posto sopra, un bot in generale si puó rappresentare con due parti distinte, poste totalmente o in parte su un server esterno. La scelta del server influenzerá sicuramente il numero di interrogazioni che si possono fare, la velocitá di risposta e l'usabilitá in generale, a discapito del prezzo che la piattaforma di hosting ci fará pagare per avere questi servigi. Se si utilizza una soluzione "locale" in cui il proprio pc viene utilizzato come server si avranno sicuramente degli svantaggi rispetto a una soluzione cloud, ma il prezzo sará nullo e le limitazioni (se non date da hardware) non esisterebbero. Ad ora, esplorando le varie possibili scelte, per la fase di testing della demo é stato possibile sempre usufruire delle opzioni "free" della piattaforma di turno. Questo include sia UX che Hosting Server. Inoltre, rientra in questa sezione anche la possibilitá di ridurre query rindondanti attraverso l'implementazione di un minimo di \textit{caching}. Non é una parte da sottovalutare in quanto potrebbe risparmiarci un parte consistente di interrogazioni inutili al sistema e migliorare l'efficienza generale. Si pensava quindi di usare inizialmente un'unico file Json, che viene "guardato" dal codice ogni volta che giunge una nuova interrogazione, e aggiornato se i dati richiesti non sono presenti o troppo vecchi per essere attendibili. É un'implementazione semplice di caching, ma per iniziare puó funzionare.  
 
 \subsection{Privacy e persistenza}
-Oltre alle informazioni pubbliche dell'utente, dobbiamo per forza aver a che fare con dati personali (e.g.\ password, codice persona ...) e riservati, che ne gli sviluppatori ne qualcuno esterno dovrebbe essere in grado di leggere. Queste informazioni doverebbero, se non vogliamo che l'utente debba sempre inserire le sue credenziali, essere tenute e criptate in qualche database esterno criptato in modo che neanche noi possano accedere al contenuto se non per interrogazione da parte del codice. Purtroppo questa problematica é una parte troppo grossa da risolvere in un progetto del genere, e potrebbe tranquillamente portarci via tutto il tempo che abbiamo pensato di dedicare al bot. Non analizzeremo dunque piú a fondo questa sezione. 
+Oltre alle informazioni pubbliche dell'utente, dobbiamo per forza aver a che fare con dati personali (e.g.\ password, codice persona ...) e riservati, che nè gli sviluppatori nè soggetti esterno dovrebbe essere in grado di leggere. Queste informazioni doverebbero, se non vogliamo che l'utente debba sempre inserire le sue credenziali, essere tenute in qualche database esterno criptato in modo che neanche noi possano accedere al contenuto se non per interrogazione da parte del codice. Purtroppo questa problematica é una parte troppo grossa da risolvere in un progetto del genere, e potrebbe tranquillamente portarci via tutto il tempo che abbiamo pensato di dedicare al bot. Non analizzeremo dunque piú a fondo questa sezione. 
 
 \subsection{Scraping}
 \begin{quote} 
 "Il web scraping (detto anche web harvesting o web data extraction) è una tecnica informatica di estrazione di dati da un sito web per mezzo di programmi software"
 \end{quote}
-Esso quindi é la parte che si occupa di cercare e raccogliere dati sul web, riordinarli e restituirli al richiedente. Il nostro progetto é strettamente correlato alle informazioni esterne che dobbiamo cercare all'interno (nel nostro caso) del sito del politecnico/beep, che purtroppo non é fornita di comode API che possiamo chiamare nel codice. Viene quindi visto indispensabile un cosiddetto \textit{motore di scraping}, ovvero la parte di codice o software preposto alla raccolta dei dati a noi utili. Anch'esso é un argomento molto, forse troppo vasto per parlarne in queste poche righe, e purtroppo ci siamo visti costretti a non implementarlo nella prima demo del bot. Al suo posto abbiamo pensato di utilizzare un motore "fake" costruito su un foglio di testo, ma di questo se ne parlerá nella sezione dedicata allo sviluppo della demo. Abbiamo ovviamente fatto ricerche, seppur quasi superficiali, su questo argomento. É venuto fuori che esistono decine e decine di software (free o a pagamento) che offrono web scraping di varia profonditá, integrazioni con API e servizi. Uno in particolare ha attirato la nostra attenzione: un portale free che offre soluzioni di scraping \textit{in teoria facile da programmare} che risponde al nome di \textbf{Portia}. Qualche prova é stata fatta giusto per vedere che cosa si poteva e per adattare al meglio la nostra demo, in una previsione di implementazione futura. Si é concluso che il Json é sempre il mezzo piú semplice e veloce per simulare questi motori.
+Esso quindi é la parte che si occupa di cercare e raccogliere dati sul web, riordinarli e restituirli al richiedente. Il nostro progetto é strettamente correlato alle informazioni esterne che dobbiamo cercare all'interno (nel nostro caso) del sito del politecnico/beep, che purtroppo non é fornita di comode API che possiamo chiamare nel codice. Viene quindi visto indispensabile un cosiddetto \textit{motore di scraping}, ovvero la parte di codice o software preposto alla raccolta dei dati a noi utili. Anch'esso é un argomento molto (forse troppo) vasto per parlarne in queste poche righe, e purtroppo ci siamo visti costretti a non implementarlo nella prima demo del bot. Al suo posto abbiamo pensato di utilizzare un motore "fake" costruito su un foglio di testo, ma di questo se ne parlerá nella sezione dedicata allo sviluppo della demo. Abbiamo ovviamente fatto ricerche, seppur quasi superficiali, su questo argomento. É venuto fuori che esistono decine e decine soluzioni (free o a pagamento) che offrono web scraping di varia profonditá, integrazioni con API e servizi. Uno in particolare ha attirato la nostra attenzione: un portale free che offre soluzioni di scraping \textit{in teoria facile da programmare} che risponde al nome di \textbf{Portia}. Qualche prova é stata fatta giusto per vedere che cosa si poteva e per adattare al meglio la nostra demo, in una previsione di implementazione futura. Si é concluso che il Json é sempre il mezzo piú semplice e veloce per simulare questi motori.
 
 \section{Flow}
-Questo é il fulcro della progettazione della demo del bot. Vengono sotto proposti due tipi differenti di rappresentazioni grafiche, che nel loro insieme dovrebbero comporre la parte dedicata alla UX. La prima infatti, molto simile a un diagramma a flusso, mette ordine sul percorso che la conversazione deve avere in determinati momenti, presentando il tipo di risposte che l'utente si deve aspettare dopo determinate interrogazioni (é comunque presente una legenda per aiutare la comprenzione). Il secondo, a nostro avviso piú interessante, é piú simile a un diagramma delle classi, e cerca di mettere in chiaro le relazioni e le caratteristiche degli argomenti della conversazioni (chiamati \textbf{contesti}). Proprio quest'ultimo, essendo piú elaborato, ha bisogno di essere spiegato attraverso alcune semplici regole:
+Questo é il fulcro della progettazione della demo del bot. Vengono sotto proposti due tipi differenti di rappresentazioni grafiche, che nel loro insieme dovrebbero comporre la parte dedicata alla UX. La prima infatti, molto simile a un diagramma a flusso, mette ordine sul percorso che la conversazione deve avere, presentando il tipo di risposte che l'utente si deve aspettare dopo determinate interrogazioni (é comunque presente una legenda per aiutare la comprensione). Il secondo, a nostro avviso piú interessante, é piú simile a un diagramma delle classi, e cerca di mettere in chiaro le relazioni e le caratteristiche degli argomenti della conversazioni (chiamati \textbf{contesti}). Proprio quest'ultimo, essendo piú elaborato, ha bisogno di essere spiegato con una legenda (vedi Fig.1) e attraverso alcune semplici regole:
 
 \begin{itemize}
-\item Una conversazione all'interno di un context puó cominciare da qualsiasi root intent dello stesso context
-\item Il passaggio tra due context può avvenire in qualsiasi momento: a seconda dell'intento che ne permette il passaggio, i parametri vengono tenuti. Se non vengono specificati parametri, di default non viene passato niente
-\item Non possono esistere più root intent con le stesse frasi di trigger, possono invece esistere degli intent normali con le stesse frasi
-\item Gli intent tra intent-name sono quelli che possono essere usati per le risposte di relazione simmetrica (riconosciute che partono dallo stesso context). Questa relazione viene usata solo se il numero di parametri é maggiore o uguale a 2. Un intent padre passa questa proprietá ai figli
-\item Il default fallback è presente in tutti i context e non deve essere un root intent: (per evitare sovrapposizioni tra piú intent)
-\item La relazione padre/figlio esiste quando un intento padre contiene nell'imput piú parametri. Per la scelta dell'intent in questa relazione si va a prendere il figlio che necessita di meno parametri per essere "attivato" (seguendo la gerarchia grafica)
+\item Una conversazione all'interno di un context puó cominciare da qualsiasi root intent dello stesso context.
+\item Il passaggio tra due context può avvenire in qualsiasi momento: a seconda dell'intento che ne permette il passaggio, i parametri vengono tenuti o meno. Se non vengono specificati parametri, di default non viene passato niente.
+\item Non possono esistere più root intent con le stesse frasi di trigger, possono invece esistere degli intent normali con le stesse frasi.
+\item Gli intent tra gli asterischi sono quelli che possono essere usati per le risposte di relazione simmetrica (riconosciute che partono dallo stesso context). Un intent padre passa questa proprietá ai figli.
+\item Il default fallback è presente in tutti i context e non deve essere un root intent (per evitare sovrapposizioni tra piú intent).
+\item La relazione padre/figlio esiste quando un intento padre contiene nell'imput piú parametri. Per la scelta dell'intent in questa relazione si va a prendere il figlio che necessita di meno parametri per essere "attivato" (seguendo la gerarchia grafica).
 \end{itemize}
 
-La relazione tra i context é \textbf{SERIALE, RIFLESSIVA} (solo se in presenza di parametri) e \textbf{SIMMETRICA}.
+La relazione tra i context é \textbf{SERIALE, RIFLESSIVA} (tranne poche eccezioni) e \textbf{SIMMETRICA}.
 
 \begin{center}
 \vspace*{0.5cm}
@@ -335,22 +345,39 @@ Ecco i principali punti che descrivono in cosa questa demo si discosta dal proge
 \end{itemize}
 
 \section{Futuri Sviluppi}
-Cosa ci aspetta il futuro? Ecco cosa ci piacerebbe implementare e come intendiamo farlo:
+Cosa ci aspetta il futuro? Ecco cosa ci piacerebbe implementare e come intenderemmo farlo:
 \begin{itemize}
-\item Completare la parte degli utenti non loggati con tutte le sue parti funzionanti nel codice server
-\item riuscire a "staccare" il codice dalle informazioni del nostro scraping 
+\item Completare la parte degli utenti non loggati con tutte le sue parti funzionanti nel codice server.
+\item riuscire a "staccare" il codice dalle informazioni del nostro scraping.
 \item utilizzare uno scraping che permetta di manipolare informazioni dinamiche: può essere comunque utilizzato un motore che "crei" un json in modo da non dover cambiare la struttura del nostro codice.
-\item trovare la migliore soluzione per quanto riguarda la memorizzazione dei dati. Si pensava inizialmente di mettere tutto dentro un file di testo sotto una voce univoca che rappresenta l'utente 
-\item implementare il riconoscimento utente tramite controllo codice univoco della piattaforma (telegram o altro). A seconda delle informazioni che troviamo l'esperienza verrà personalizzata
-\item cercare soluzioni per ottenere un livello di pivacy accettabile in modo da poter richiedere informazioni delicate quali codice persona e password
-\item trovare un modo efficace per utilizzare queste informazioni tramite il motore di scraping sopra citato. Ovviamente devono essere utilizzate in modo da mantenere il livello di privacy minimo richiesto
+\item trovare la migliore soluzione per quanto riguarda la memorizzazione dei dati. Si pensava inizialmente di mettere tutto dentro un file di testo sotto una voce univoca che rappresenta l'utente.
+\item implementare il riconoscimento utente tramite controllo codice univoco della piattaforma (telegram o altro). A seconda delle informazioni che troviamo l'esperienza verrà personalizzata.
+\item cercare soluzioni per ottenere un livello di pivacy accettabile in modo da poter richiedere informazioni delicate quali codice persona e password.
+\item trovare un modo efficace per utilizzare queste informazioni tramite il motore di scraping sopra citato. Ovviamente devono essere utilizzate in modo da mantenere il livello di privacy minimo richiesto.
 \end{itemize}
 
-% Bibliografia
 \begin{thebibliography}{9}
-\textbf{DialogFow}: \url{https://dialogflow.com} \\
-\textbf{Repository GitHub}: \url{https://github.com/Roncax/PolimiChatBot} \\
-\textbf{Useful ChatBot design principles}: \url{https://docs.microsoft.com/en-us/bot-framework/bot-service-design-principles} \\
+\bibitem{dialogflow} 
+\textbf{DialogFlow}: \url{https://dialogflow.com}
+ 
+\bibitem{gitHub} 
+\textbf{Repository GitHub}: \url{https://github.com/Roncax/PolimiChatBot}
+ 
+\bibitem{google cloud} 
+\textbf{Google Cloud Platform}: \url{https://cloud.google.com}
+ 
+\bibitem{microsoft article} 
+Utile articolo di design principles: \url{https://docs.microsoft.com/en-us/bot-framework/bot-service-design-principles}
+
+\bibitem{google docs} 
+Google DialogFlow docs: \url{https://dialogflow.com/docs/getting-started/basics}
+
+\bibitem{designarticle}
+Altro utile articolo sul design di un chatbot: \url{https://chatbotsmagazine.com/design-framework-for-chatbots-aa27060c4ea3}
+
 \end{thebibliography}
+
+
+
 
 \end{document}
