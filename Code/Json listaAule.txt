@@ -1,15 +1,13 @@
-{ "body":
-	{
-		"aula": "N.0.1",
-		"edificio": "Edificio 1", 
-		"orario": ["8.30-9.30 Analisi", "Sharpen Thy Shovel"]
-	},
-	{
-		"aula": "N.0.2",
-		"edificio": "Edificio 1"
-	},
- 	{
-		"aula": "T.1.1",
-		"edificio": "Edificio 13"
-	}
-}
+ {
+ 	"aula": "N.0.1",
+ 	"edificio": "Edificio 1",
+ 	"orario": ["8.30-9.30 Analisi 1","10.30-12.30 Misure"]},
+	
+ {
+ 	"aula": "N.0.2",
+ 	"edificio": "Edificio 1", 
+ 	"orario": ["8.30-9.30 Analisi 1", "10.30-12.30 Misure"]}, 
+ {
+ 	"aula": "T.1.1",
+	"edificio": "Edificio 13", 
+	"orario": ["8.30-9.30 Analisi 1", "10.30-12.30 Misure"]}

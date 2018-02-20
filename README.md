@@ -14,8 +14,12 @@ Attualmente il nostro bot é attivo su Telegram al nome di @PolimiStudent_Bot, E
 
 ## Informazioni Generali
 
-WebHook address testBot: https://us-central1-weather-1ce1c.cloudfunctions.net/weatherWebhook
-WebHook address Demo: https://us-central1-weather-1ce1c.cloudfunctions.net/polimiWebhook
+WebHook address testBot:
+https://us-central1-weather-1ce1c.cloudfunctions.net/weatherWebhook
+
+WebHook address Demo: 
+https://us-central1-weather-1ce1c.cloudfunctions.net/polimiWebhook
+
 Esempi di Json da inoltrare e ricevere (testBot)
 
 In entrata: 

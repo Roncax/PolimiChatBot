@@ -1,13 +1,8 @@
-{ 
-"body":
-	{
-		"aula": "N01",
-		"occupatoGiorno": "2018-02-08T12:00:00+01:00",
-		"occupatoOra": "8:00/19:00"
-	},
-	{
-		"aula": "N02",
-		"occupatoGiorno": "2018-02-07T12:00:00+01:00",
-		"occupatoOra": "8:00/14:00"
-	}
-}
+{
+	"aula": "N01",
+	"occupatoGiorno": "2018-02-13T12:00:00+01:00",
+	"occupatoOra": "8:00/19:00"},
+{
+	"aula": "N02",
+	"occupatoGiorno": "2018-02-14T12:00:00+01:00",
+	"occupatoOra": "8:00/14:00"}
