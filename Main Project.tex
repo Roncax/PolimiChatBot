@@ -79,21 +79,21 @@ Oltre alle informazioni pubbliche dell'utente, dobbiamo per forza aver a che far
 Esso quindi é la parte che si occupa di cercare e raccogliere dati sul web, riordinarli e restituirli al richiedente. Il nostro progetto é strettamente correlato alle informazioni esterne che dobbiamo cercare all'interno (nel nostro caso) del sito del politecnico/beep, che purtroppo non é fornita di comode API che possiamo chiamare nel codice. Viene quindi visto indispensabile un cosiddetto \textit{motore di scraping}, ovvero la parte di codice o software preposto alla raccolta dei dati a noi utili. Anch'esso é un argomento molto (forse troppo) vasto per parlarne in queste poche righe, e purtroppo ci siamo visti costretti a non implementarlo nella prima demo del bot. Al suo posto abbiamo pensato di utilizzare un motore "fake" costruito su un foglio di testo, ma di questo se ne parlerá nella sezione dedicata allo sviluppo della demo. Abbiamo ovviamente fatto ricerche, seppur quasi superficiali, su questo argomento. É venuto fuori che esistono decine e decine soluzioni (free o a pagamento) che offrono web scraping di varia profonditá, integrazioni con API e servizi. Uno in particolare ha attirato la nostra attenzione: un portale free che offre soluzioni di scraping \textit{in teoria facile da programmare} che risponde al nome di \textbf{Portia}. Qualche prova é stata fatta giusto per vedere che cosa si poteva e per adattare al meglio la nostra demo, in una previsione di implementazione futura. Si é concluso che il Json é sempre il mezzo piú semplice e veloce per simulare questi motori.
 
 \section{Flow}
-Questo é il fulcro della progettazione della demo del bot. Vengono sotto proposti due tipi differenti di rappresentazioni grafiche, che nel loro insieme dovrebbero comporre la parte dedicata alla UX. La prima infatti, molto simile a un diagramma a flusso, mette ordine sul percorso che la conversazione deve avere, presentando il tipo di risposte che l'utente si deve aspettare dopo determinate interrogazioni (é comunque presente una legenda per aiutare la comprensione). Il secondo, a nostro avviso piú interessante, é piú simile a un diagramma delle classi, e cerca di mettere in chiaro le relazioni e le caratteristiche degli argomenti della conversazioni (chiamati \textbf{contesti}). Proprio quest'ultimo, essendo piú elaborato, ha bisogno di essere spiegato con una legenda (vedi Fig.1) e attraverso alcune semplici regole:
+Vengono sotto proposti due tipi differenti di rappresentazioni grafiche, che nel loro insieme dovrebbero comporre la parte dedicata alla UX. La prima infatti, molto simile a un diagramma a flusso, mette ordine sul percorso che la conversazione deve avere, presentando il tipo di risposte che l'utente si deve aspettare dopo determinate interrogazioni (é comunque presente una legenda per aiutare la comprensione). Il secondo, a nostro avviso piú interessante, é simile a un diagramma delle classi, e cerca di mettere in chiaro le relazioni e le caratteristiche degli argomenti della conversazioni (chiamati \textbf{contesti}). Proprio quest'ultimo, essendo piú elaborato, ha bisogno di essere spiegato con una legenda (sotto) e attraverso alcune semplici regole:
 
 \begin{itemize}
 \item Una conversazione all'interno di un context puó cominciare da qualsiasi root intent dello stesso context.
-\item Il passaggio tra due context può avvenire in qualsiasi momento: a seconda dell'intento che ne permette il passaggio, i parametri vengono tenuti o meno. Se non vengono specificati parametri, di default non viene passato niente.
+\item Il passaggio tra due context può avvenire in qualsiasi momento: a seconda dell'intento che ne permette il passaggio, i parametri vengono tenuti o meno. 
 \item Non possono esistere più root intent con le stesse frasi di trigger, possono invece esistere degli intent normali con le stesse frasi.
 \item Gli intent tra gli asterischi sono quelli che possono essere usati per le risposte di relazione simmetrica (riconosciute che partono dallo stesso context). Un intent padre passa questa proprietá ai figli.
-\item Il default fallback è presente in tutti i context e non deve essere un root intent (per evitare sovrapposizioni tra piú intent).
 \item La relazione padre/figlio esiste quando un intento padre contiene nell'imput piú parametri. Per la scelta dell'intent in questa relazione si va a prendere il figlio che necessita di meno parametri per essere "attivato" (seguendo la gerarchia grafica).
+\item La relazione tra i context é SERIALE, RIFLESSIVA (tranne poche eccezioni) e SIMMETRICA.
 \end{itemize}
 
-La relazione tra i context é \textbf{SERIALE, RIFLESSIVA} (tranne poche eccezioni) e \textbf{SIMMETRICA}.
+
 
 \begin{center}
-\vspace*{0.5cm}
+\vspace*{0.05cm}
 \includegraphics[width=0.6\textwidth]{flow2legend}
 \end{center}
 
@@ -125,13 +125,13 @@ La relazione tra i context é \textbf{SERIALE, RIFLESSIVA} (tranne poche eccezio
 \thispagestyle{empty}
 
 \section{Ricerca del FrameWork: Bot di test}
-Bot creato per testare i vari framework esistenti, aiuterá la selezione del nostro ambiente di lavoro in base a dei parametri illustrati sotto. É essenziale che sia un bot semplice (per non perdere troppo tempo con lo sviluppo, essendo di test), ma con funzionalitá che siano correlate alla costruzione del nostro progetto in specifica. Pertanto ecco le regole che pensiamo debba soddisfare.
+Lo scopo di questa sezione é quello di esplorare il mondo dei framework giá esistenti per trovare la soluzione piú adatta a noi. Pertanto abbiamo pensato che il modo migliore per affrontare il problema sia quello di progettare un chatBot di Test, e implementarlo in ognuna di queste piattaforme. Esso quindi ci aiuterá con la selezione del nostro ambiente di lavoro in base a dei parametri illustrati sotto. É essenziale che sia un bot semplice (per non perdere troppo tempo con lo sviluppo, essendo di test), ma con funzionalitá che siano correlate alla costruzione del nostro progetto in specifica.
 
 \subsection{Requisiti}
 \begin{itemize}
-\item Interazione basilari con un’API web (bisogna che sia semplice e facile da usare)
-\item Riconoscimento domande al bot, piú domande poste in modo diverso devono essere riconosciute (e.g. com'è il tempo domani Milano? = che tempo fa domani a milano?)
-\item Riconoscimento semplici entitá date dall’utente (e.g. luogo, ora, data, nome, ..)
+\item Interazione basilari con un’API web (bisogna che sia semplice e facile da usare).
+\item Riconoscimento domande al bot, piú domande poste in modo diverso devono essere riconosciute (e.g. com'è il tempo domani Milano? = che tempo fa domani a milano?).
+\item Riconoscimento semplici entitá date dall’utente (e.g. luogo, ora, data, nome, ..).
 \end{itemize}
 
 \subsection{Parametri di valutazione}
@@ -139,17 +139,17 @@ Questi rappresentano i parametri che useremo per valutare il framework che teste
 
 \paragraph{Bot}
 \begin{itemize}
-\item \textit{Facilitá di progettazione}: Quante conoscenze e approfondimenti sono necessari per creare il bot
-\item \textit{Tempo di implementazione}: Quanto tempo impieghiamo a creare il bot finito funzionante
-\item \textit{Profondità}: L’insieme di strumenti aggiuntivi che ci sono forniti dall’ambiente di lavoro (training, analisi, ..) che permettono uno sviluppo piú approfondito del bot
-\item \textit{Persistenza della memoria}: possibilitá (e facilitá) di memorizzare certi dati dell’utente per un certo periodo di tempo
+\item \textit{Facilitá di progettazione}: Quante conoscenze e approfondimenti sono necessari per creare il bot.
+\item \textit{Tempo di implementazione}: Quanto tempo impieghiamo a creare il bot finito funzionante.
+\item \textit{Profondità}: L’insieme di strumenti aggiuntivi che ci sono forniti dall’ambiente di lavoro (training, analisi, ..) che permettono uno sviluppo piú approfondito del bot.
+\item \textit{Persistenza della memoria}: possibilitá (e facilitá) di memorizzare certi dati dell’utente per un certo periodo di tempo.
 \end{itemize}
 
 \paragraph{FrameWork}
 \begin{itemize}
-\item \textit{Pricing strategies}: Prezzo e fornitori
-\item \textit{Piattaforme}: Su quali piattaforme di chat (telegram, slack, ..) posso fare il deployment
-\item \textit{Disponibilitá di SDK}: utili allo sviluppo, non enormemente influenti in questo test
+\item \textit{Pricing strategies}: Prezzo e fornitori.
+\item \textit{Piattaforme}: Su quali piattaforme di chat (telegram, slack, ..) posso fare il deployment.
+\item \textit{Disponibilitá di SDK}: utili allo sviluppo, non enormemente influenti in questo test.
 \end{itemize}
 
 \subsection{Descrizione bot}
@@ -157,7 +157,7 @@ Il tipo di bot(test) che alla fine abbiamo scelto di portare avanti è una sempl
 La scelta è ricaduta su questo tipo di bot soprattutto grazie alla disponibilitá di una documentazione passo-passo da parte del frameWork DialogFlow dell'implementazione del bot descritto sopra (presente nella repository di github di riferimento).
 
 \subsection{Deployment description}
-In questa parte andiamo a descrivere la nostra esperienza con le 8 (su 25-30 di base) piattaforme individuate tramite ricerca e con supporto di questo,  questo e questo (valido anche se datato) documento. Abbiamo escluso tutte quelle applicazioni per il quale non è stato possibile reperire il prezzo o che proponevano solo dei Trial o Demo (tipicamente pensate per aziende) o quelle che pensiamo non abbiano gli elementi base per poter servire al progetto.
+In questa parte andiamo a descrivere la nostra esperienza con le 8 (su 25-30 di base) piattaforme individuate tramite un'accurata ricerca. Abbiamo escluso tutte quelle applicazioni per il quale non è stato possibile reperire il prezzo o che proponevano solo dei Trial o Demo (tipicamente pensate per aziende) o quelle che pensiamo non abbiano gli elementi base per poter servire al progetto.
 Per l’hosting e il deployment del codice (funzione weatherWebhook) che è servito da base per l’interazione con API esterne, abbiamo usato la piattaforma Google Cloud Project, usufruendo del servizio gratis per 1 anno. Per quanto riguarda l’API key, abbiamo sfruttato quella del famoso sito \url{https://developer.worldweatheronline.com}, che permette di avere la premium key per un periodo di trial di 60 giorni (500 calls per minuto). Una parte su cui abbiamo avuto difficoltá inizialmente è stata la configurazione del servizio di google, ma una volta messo in piedi la struttura della generazione delle risposte dovrebbe essere possibile sfruttare questo script su tutte le piattaforme di testing.
 
 \subsubsection{DialogFlow} 
@@ -333,28 +333,31 @@ La gestione dei dati degli eventuali utenti è stata una scelta più difficile: 
 L’uso dei file JSON ci ha permesso non solo di gestirle multiple sorgenti di dati, ma anche di avere librerie già adibite alla lettura e alla manipolazione dei file JSON: tali file possono inoltre essere scorporati dal codice e usati in un server locale, qualora ce ne fosse la necessità.
 
 \subsection{UX (DialogFlow)}
-La parte in cui viene modellata la conversazione macchina-utente è interamente contenuta in DialogFlow. In buona parte la piattaforma è descritta nella sezione dedicata alla scelta del framework. Si è cercato di seguire il più fedelmente possibile lo schema descritto sopra di interazione tra i contesti. Usando DialogFlow non ho avuto molta difficoltà a creare le relazioni tra intenti che cercavamo, più difficile invece è stato creare i contesti e utilizzarli in modo efficace (con il passaggio di parametri sopra descritto nel passaggio tra contesti). Il riconoscimento di parametri è molto valido, se si tratta di parametri di sistema (e.g.\ data, ora, period), mentre è stato necessario crearne di personali per aule e corsi di studi. Questa ultima parte è abbastanza noiosa in quanto, per avere la maggior accuratezza possibile, dovresti inserire tutti i possibili valori con i relativi sinonimi (a meno che non voglia rischiare di riconoscere parametri non corretti). Tutto sommato però, dopo aver passato qualche ora a ragionare sulle diverse relazioni tra contesti e intenti, è venuto fuori un bot completo, come appunto descritto nello schema a oggetti.  
+La parte in cui viene modellata la conversazione macchina-utente è interamente contenuta in DialogFlow. In buona parte la piattaforma è descritta nella sezione dedicata alla scelta del framework. Si è cercato di seguire il più fedelmente possibile lo schema descritto sopra di interazione tra i contesti. Usando DialogFlow non ho avuto molta difficoltà a creare le relazioni tra intenti che cercavamo, più difficile invece è stato creare i contesti e utilizzarli in modo efficace (con il passaggio di parametri sopra descritto nel passaggio tra contesti). Il riconoscimento di parametri è molto valido se si tratta di parametri di sistema (e.g.\ data, ora, period), mentre è stato necessario crearne di personali per aule e corsi di studi. Questa ultima parte è abbastanza noiosa in quanto, per avere la maggior accuratezza possibile, dovresti inserire tutti i possibili valori con i relativi sinonimi (a meno che non voglia rischiare di riconoscere parametri non corretti). Tutto sommato però, dopo aver passato qualche ora a ragionare sulle diverse relazioni tra contesti e intenti, è venuto fuori un bot completo, come appunto descritto nello schema a oggetti.  
 
 \subsection{Limitazioni}
 Ecco i principali punti che descrivono in cosa questa demo si discosta dal progetto completo:
 \begin{itemize}
-\item Motore di Scraping costruito "ad-Hoc" (informazioni non dinamiche), cioè posto come formato json come costante all'interno del codice sul server
-\item Implementata solo parte utenti NON loggati
-\item Persistenza assente
-\item  Non completata la parte server di orari lezioni, implementata solo su dialogflow
+\item Motore di Scraping costruito "ad-Hoc" (informazioni non dinamiche), cioè posto come formato json come costante all'interno del codice sul server.
+\item Implementata solo parte utenti NON loggati.
+\item Persistenza assente.
+\item  Non completata la parte server di orari lezioni, implementata solo su dialogflow.
 \end{itemize}
 
 \section{Futuri Sviluppi}
 Cosa ci aspetta il futuro? Ecco cosa ci piacerebbe implementare e come intenderemmo farlo:
 \begin{itemize}
 \item Completare la parte degli utenti non loggati con tutte le sue parti funzionanti nel codice server.
-\item riuscire a "staccare" il codice dalle informazioni del nostro scraping.
-\item utilizzare uno scraping che permetta di manipolare informazioni dinamiche: può essere comunque utilizzato un motore che "crei" un json in modo da non dover cambiare la struttura del nostro codice.
+\item utilizzare uno scraping che permetta di manipolare informazioni dinamiche: può essere comunque utilizzato un motore che "crei" un json in modo da non dover cambiare la struttura del nostro codice, o perlomeno apportare solo piccole modifiche.
 \item trovare la migliore soluzione per quanto riguarda la memorizzazione dei dati. Si pensava inizialmente di mettere tutto dentro un file di testo sotto una voce univoca che rappresenta l'utente.
-\item implementare il riconoscimento utente tramite controllo codice univoco della piattaforma (telegram o altro). A seconda delle informazioni che troviamo l'esperienza verrà personalizzata.
+\item implementare il riconoscimento utente tramite controllo codice univoco della piattaforma (dialogflow in questo caso). A seconda delle informazioni che troviamo l'esperienza verrà personalizzata.
 \item cercare soluzioni per ottenere un livello di pivacy accettabile in modo da poter richiedere informazioni delicate quali codice persona e password.
 \item trovare un modo efficace per utilizzare queste informazioni tramite il motore di scraping sopra citato. Ovviamente devono essere utilizzate in modo da mantenere il livello di privacy minimo richiesto.
+\item implementare quindi tutte le funzionalitá utente loggato, meno gli avvisi personalizzati.
+\item costruire evento trigger invio notifica, parte che richiede uno studio piú approfondito.
 \end{itemize}
+
+\newpage
 
 \begin{thebibliography}{9}
 \bibitem{dialogflow} 

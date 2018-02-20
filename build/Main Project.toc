@@ -10,43 +10,43 @@
 \contentsline {subsection}{\numberline {2.2}Privacy e persistenza}{6}
 \contentsline {subsection}{\numberline {2.3}Scraping}{6}
 \contentsline {section}{\numberline {3}Flow}{7}
-\contentsline {section}{\numberline {4}Ricerca del FrameWork: Bot di test}{14}
-\contentsline {subsection}{\numberline {4.1}Requisiti}{14}
-\contentsline {subsection}{\numberline {4.2}Parametri di valutazione}{14}
-\contentsline {paragraph}{Bot}{14}
-\contentsline {paragraph}{FrameWork}{15}
-\contentsline {subsection}{\numberline {4.3}Descrizione bot}{15}
-\contentsline {subsection}{\numberline {4.4}Deployment description}{15}
-\contentsline {subsubsection}{\numberline {4.4.1}DialogFlow}{15}
-\contentsline {paragraph}{Implementazione}{15}
+\contentsline {section}{\numberline {4}Ricerca del FrameWork: Bot di test}{13}
+\contentsline {subsection}{\numberline {4.1}Requisiti}{13}
+\contentsline {subsection}{\numberline {4.2}Parametri di valutazione}{13}
+\contentsline {paragraph}{Bot}{13}
+\contentsline {paragraph}{FrameWork}{14}
+\contentsline {subsection}{\numberline {4.3}Descrizione bot}{14}
+\contentsline {subsection}{\numberline {4.4}Deployment description}{14}
+\contentsline {subsubsection}{\numberline {4.4.1}DialogFlow}{14}
+\contentsline {paragraph}{Implementazione}{14}
+\contentsline {paragraph}{Valutazione}{15}
+\contentsline {paragraph}{Commento personale}{16}
+\contentsline {subsubsection}{\numberline {4.4.2}FlowXo}{16}
+\contentsline {paragraph}{Implementazione}{16}
 \contentsline {paragraph}{Valutazione}{16}
 \contentsline {paragraph}{Commento personale}{17}
-\contentsline {subsubsection}{\numberline {4.4.2}FlowXo}{17}
+\contentsline {subsubsection}{\numberline {4.4.3}PandoraBots}{17}
 \contentsline {paragraph}{Implementazione}{17}
-\contentsline {paragraph}{Valutazione}{17}
+\contentsline {paragraph}{Valutazione}{18}
 \contentsline {paragraph}{Commento personale}{18}
-\contentsline {subsubsection}{\numberline {4.4.3}PandoraBots}{18}
+\contentsline {subsubsection}{\numberline {4.4.4}GupShup.io}{18}
 \contentsline {paragraph}{Implementazione}{18}
 \contentsline {paragraph}{Valutazione}{19}
 \contentsline {paragraph}{Commento personale}{19}
-\contentsline {subsubsection}{\numberline {4.4.4}GupShup.io}{19}
-\contentsline {paragraph}{Implementazione}{19}
-\contentsline {paragraph}{Valutazione}{20}
-\contentsline {paragraph}{Commento personale}{20}
-\contentsline {subsubsection}{\numberline {4.4.5}Microsoft Bot Framework}{21}
-\contentsline {paragraph}{Conclusioni}{22}
-\contentsline {subsubsection}{\numberline {4.4.6}Wit.ai}{22}
-\contentsline {subsubsection}{\numberline {4.4.7}ChatFuel}{22}
-\contentsline {paragraph}{Implementazione}{22}
-\contentsline {paragraph}{Valutazione}{23}
-\contentsline {paragraph}{Commento personale}{24}
-\contentsline {subsubsection}{\numberline {4.4.8}kitt.ai}{24}
-\contentsline {paragraph}{Implementazione}{24}
-\contentsline {paragraph}{Valutazione}{25}
-\contentsline {paragraph}{Commento personale}{26}
-\contentsline {subsection}{\numberline {4.5}Commenti Finali e decisione}{26}
-\contentsline {section}{\numberline {5}Costruzione bot di Demo}{26}
-\contentsline {subsection}{\numberline {5.1}ServerSide}{26}
-\contentsline {subsection}{\numberline {5.2}UX (DialogFlow)}{27}
-\contentsline {subsection}{\numberline {5.3}Limitazioni}{27}
-\contentsline {section}{\numberline {6}Futuri Sviluppi}{28}
+\contentsline {subsubsection}{\numberline {4.4.5}Microsoft Bot Framework}{20}
+\contentsline {paragraph}{Conclusioni}{21}
+\contentsline {subsubsection}{\numberline {4.4.6}Wit.ai}{21}
+\contentsline {subsubsection}{\numberline {4.4.7}ChatFuel}{21}
+\contentsline {paragraph}{Implementazione}{21}
+\contentsline {paragraph}{Valutazione}{22}
+\contentsline {paragraph}{Commento personale}{23}
+\contentsline {subsubsection}{\numberline {4.4.8}kitt.ai}{23}
+\contentsline {paragraph}{Implementazione}{23}
+\contentsline {paragraph}{Valutazione}{24}
+\contentsline {paragraph}{Commento personale}{25}
+\contentsline {subsection}{\numberline {4.5}Commenti Finali e decisione}{25}
+\contentsline {section}{\numberline {5}Costruzione bot di Demo}{25}
+\contentsline {subsection}{\numberline {5.1}ServerSide}{25}
+\contentsline {subsection}{\numberline {5.2}UX (DialogFlow)}{26}
+\contentsline {subsection}{\numberline {5.3}Limitazioni}{26}
+\contentsline {section}{\numberline {6}Futuri Sviluppi}{27}
