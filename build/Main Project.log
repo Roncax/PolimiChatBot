@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.29)  21 FEB 2018 13:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.29)  26 FEB 2018 22:47
 entering extended mode
 **"./Main Project.tex"
 ("Main Project.tex"
@@ -415,6 +415,30 @@ File: pdftex.def 2017/06/24 v1.0g Graphics/color driver for pdftex
 \WF@everypar=\toks17
 Package: wrapfig 2003/01/31  v 3.6
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\sttools\floatpag.sty"
+Package: floatpag 2012/05/29 v1.1 Different pagestyles on float pages
+Package: floatpag 1999/04/29 FLOAT PAGESTYLE
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty"
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen108
+\lightrulewidth=\dimen109
+\cmidrulewidth=\dimen110
+\belowrulesep=\dimen111
+\belowbottomsep=\dimen112
+\aboverulesep=\dimen113
+\abovetopsep=\dimen114
+\cmidrulesep=\dimen115
+\cmidrulekern=\dimen116
+\defaultaddspace=\dimen117
+\@cmidla=\count93
+\@cmidlb=\count94
+\@aboverulesep=\dimen118
+\@belowrulesep=\dimen119
+\@thisruleclass=\count95
+\@lastruleclass=\count96
+\@thisrulewidth=\dimen120
+)
 ("A:\Documents\Git Project\PolimiChatBot\build\Main Project.aux")
 \openout1 = `"Main Project.aux"'.
 
@@ -435,16 +459,16 @@ LaTeX Info: Redefining \it@ccap on input line 11.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count93
-\scratchdimen=\dimen108
+\scratchcounter=\count97
+\scratchdimen=\dimen121
 \scratchbox=\box27
-\nofMPsegments=\count94
-\nofMParguments=\count95
+\nofMPsegments=\count98
+\nofMParguments=\count99
 \everyMPshowfont=\toks18
-\MPscratchCnt=\count96
-\MPscratchDim=\dimen109
-\MPnumerator=\count97
-\makeMPintoPDFobject=\count98
+\MPscratchCnt=\count100
+\MPscratchDim=\dimen122
+\MPnumerator=\count101
+\makeMPintoPDFobject=\count102
 \everyMPtoPDFconversion=\toks19
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -499,11 +523,11 @@ G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 19.
+(Font)              <12> on input line 21.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 19.
+(Font)              <8> on input line 21.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 19.
+(Font)              <6> on input line 21.
  [1
 
 {C:/Users/Roncax/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
@@ -517,20 +541,20 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout3 = `"Main Project.toc"'.
 
  [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 38.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 39.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 38.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 39.
  [3]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 67.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 68.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 ) [4]
-<dialogflow.png, id=22, 853.1875pt x 351.3125pt>
+<dialogflow.png, id=23, 853.1875pt x 351.3125pt>
 File: dialogflow.png Graphic file (type png)
 <use dialogflow.png>
 Package pdftex.def Info: dialogflow.png  used on input line 76. on input line 7
@@ -545,186 +569,177 @@ Package pdftex.def Info: pandorabots.png  used on input line 122. on input line
  122.
 Package pdftex.def Info: Requested size: 413.99895pt x 163.62259pt on input lin
 e 122.
- [7 <./pandorabots.png>] [8] [9]
-<mbf.png, id=45, 1606.0pt x 780.9175pt>
+ [7] [8 <./pandorabots.png>] [9] [10]
+<mbf.png, id=48, 1606.0pt x 780.9175pt>
 File: mbf.png Graphic file (type png)
 <use mbf.png>
-Package pdftex.def Info: mbf.png  used on input line 172. on input line 172.
+Package pdftex.def Info: mbf.png  used on input line 171. on input line 171.
 Package pdftex.def Info: Requested size: 413.99895pt x 201.30595pt on input lin
-e 172.
- [10] [11 <./mbf.png>]
+e 171.
+ [11 <./mbf.png>]
 <chatfuel.png, id=52, 1356.06625pt x 618.31pt>
 File: chatfuel.png Graphic file (type png)
 <use chatfuel.png>
-Package pdftex.def Info: chatfuel.png  used on input line 188. on input line 18
-8.
+Package pdftex.def Info: chatfuel.png  used on input line 187. on input line 18
+7.
 Package pdftex.def Info: Requested size: 413.99895pt x 188.7588pt on input line
- 188.
- [12 <./chatfuel.png (PNG copy)>]
-<kittai.png, id=56, 622.325pt x 352.31625pt>
+ 187.
+ [12 <./chatfuel.png (PNG copy)>] [13]
+<kittai.png, id=60, 622.325pt x 352.31625pt>
 File: kittai.png Graphic file (type png)
 <use kittai.png>
-Package pdftex.def Info: kittai.png  used on input line 213. on input line 213.
+Package pdftex.def Info: kittai.png  used on input line 212. on input line 212.
 
 Package pdftex.def Info: Requested size: 413.99895pt x 234.37875pt on input lin
-e 213.
- [13] [14 <./kittai.png>] [15] [16]
-<flow2legend.png, id=71, 389.455pt x 324.21124pt>
+e 212.
+ [14 <./kittai.png>]
+Overfull \hbox (1.25711pt too wide) in paragraph at lines 227--228
+ \T1/cmr/bx/n/10 Com-men-to per-so-na-le[] \T1/cmr/m/n/10 Com-ples-si-va-men-te
+ que-sto Fra-mework sem-bra un buon
+ []
+
+[15] [16] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 281--282
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 284--285
+
+ []
+
+[18]
+<flow2legend.png, id=77, 389.455pt x 324.21124pt>
 File: flow2legend.png Graphic file (type png)
 <use flow2legend.png>
-Package pdftex.def Info: flow2legend.png  used on input line 276. on input line
- 276.
+Package pdftex.def Info: flow2legend.png  used on input line 290. on input line
+ 290.
 Package pdftex.def Info: Requested size: 207.0021pt x 172.32089pt on input line
- 276.
+ 290.
 
-Overfull \hbox (69.00421pt too wide) in paragraph at lines 276--277
+Overfull \hbox (69.00421pt too wide) in paragraph at lines 290--291
  [] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 272--281
-\T1/cmr/m/n/10 ro in-sie-me do-vreb-be-ro com-por-re la par-te de-di-ca-ta al-l
-a UX.
- []
-
-[17] [18 <./flow2legend.png>] [19] [20] [21]
-<botofficial.png, id=89, 1556.81625pt x 884.30376pt>
+[19 <./flow2legend.png>] [20] [21] [22]
+<botofficial.png, id=92, 1556.81625pt x 884.30376pt>
 File: botofficial.png Graphic file (type png)
 <use botofficial.png>
-Package pdftex.def Info: botofficial.png  used on input line 345. on input line
- 345.
-Package pdftex.def Info: Requested size: 690.0pt x 391.94196pt on input line 34
-5.
-
-Overfull \hbox (20.71089pt too wide) in paragraph at lines 344--346
- |  [] 
- []
-
-
-Overfull \vbox (87.5421pt too high) has occurred while \output is active []
-
-
-[22 <./botofficial.png>]
-<p01.pdf, id=94, pagebox=cropbox, 845.1575pt x 599.23875pt>
-File: p01.pdf Graphic file (type pdf)
-<use p01.pdf>
-Package pdftex.def Info: p01.pdf  used on input line 352. on input line 352.
-Package pdftex.def Info: Requested size: 690.0pt x 489.23935pt on input line 35
-2.
-
-Overfull \hbox (144.23935pt too wide) in paragraph at lines 352--354
-[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 352--354
-
- []
-
-
-Overfull \vbox (87.5421pt too high) has occurred while \output is active []
-
-
-[23 <./p01.pdf>]
-<p02.pdf, id=164, pagebox=cropbox, 845.1575pt x 599.23875pt>
-File: p02.pdf Graphic file (type pdf)
-<use p02.pdf>
-Package pdftex.def Info: p02.pdf  used on input line 358. on input line 358.
-Package pdftex.def Info: Requested size: 690.0pt x 489.23935pt on input line 35
+Package pdftex.def Info: botofficial.png  used on input line 358. on input line
+ 358.
+Package pdftex.def Info: Requested size: 690.0pt x 391.94196pt on input line 35
 8.
 
-Overfull \hbox (104.55553pt too wide) in paragraph at lines 357--360
-[]|  []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 357--360
-
- []
-
-
-Overfull \vbox (65.64174pt too high) has occurred while \output is active []
-
-
-[24 <./p02.pdf>]
-<p03.pdf, id=222, pagebox=cropbox, 845.1575pt x 599.23875pt>
-File: p03.pdf Graphic file (type pdf)
-<use p03.pdf>
-Package pdftex.def Info: p03.pdf  used on input line 363. on input line 363.
-Package pdftex.def Info: Requested size: 690.0pt x 489.23935pt on input line 36
-3.
-
-Overfull \hbox (104.55553pt too wide) in paragraph at lines 362--365
-[]|  []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 362--365
-
- []
-
-
-Overfull \vbox (65.64174pt too high) has occurred while \output is active []
-
-
-[25 <./p03.pdf>]
-<p05.pdf, id=275, pagebox=cropbox, 614.295pt x 794.97pt>
-File: p05.pdf Graphic file (type pdf)
-<use p05.pdf>
-Package pdftex.def Info: p05.pdf  used on input line 372. on input line 372.
-Package pdftex.def Info: Requested size: 552.0021pt x 714.39894pt on input line
- 372.
-
-Overfull \hbox (123.86552pt too wide) in paragraph at lines 371--373
- |  [] 
- []
-
-[26]
-Overfull \vbox (111.94104pt too high) has occurred while \output is active []
-
-
-[27 <./p05.pdf>]
-<p04.pdf, id=285, pagebox=cropbox, 614.295pt x 794.97pt>
-File: p04.pdf Graphic file (type pdf)
-<use p04.pdf>
-Package pdftex.def Info: p04.pdf  used on input line 379. on input line 379.
-Package pdftex.def Info: Requested size: 552.0021pt x 714.39894pt on input line
- 379.
-
-Overfull \hbox (138.86552pt too wide) in paragraph at lines 378--380
+Overfull \hbox (20.71089pt too wide) in paragraph at lines 357--359
 []|  [] 
  []
 
 
-Overfull \vbox (90.04068pt too high) has occurred while \output is active []
+LaTeX Warning: Float too large for page by 54.64174pt on input line 359.
+
+[23] [24 <./botofficial.png>]
+<p01.pdf, id=100, pagebox=cropbox, 845.1575pt x 599.23875pt>
+File: p01.pdf Graphic file (type pdf)
+<use p01.pdf>
+Package pdftex.def Info: p01.pdf  used on input line 370. on input line 370.
+Package pdftex.def Info: Requested size: 690.0pt x 489.23935pt on input line 37
+0.
+
+Overfull \hbox (118.00829pt too wide) in paragraph at lines 369--371
+[]|  [] 
+ []
 
 
-[28 <./p04.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 391--392
+LaTeX Warning: Float too large for page by 54.64174pt on input line 371.
+
+<p02.pdf, id=101, pagebox=cropbox, 845.1575pt x 599.23875pt>
+File: p02.pdf Graphic file (type pdf)
+<use p02.pdf>
+Package pdftex.def Info: p02.pdf  used on input line 378. on input line 378.
+Package pdftex.def Info: Requested size: 690.0pt x 489.23935pt on input line 37
+8.
+
+Overfull \hbox (118.00829pt too wide) in paragraph at lines 377--379
+[]|  [] 
+ []
+
+
+LaTeX Warning: Float too large for page by 54.64174pt on input line 380.
+
+<p03.pdf, id=102, pagebox=cropbox, 845.1575pt x 599.23875pt>
+File: p03.pdf Graphic file (type pdf)
+<use p03.pdf>
+Package pdftex.def Info: p03.pdf  used on input line 386. on input line 386.
+Package pdftex.def Info: Requested size: 690.0pt x 489.23935pt on input line 38
+6.
+
+Overfull \hbox (118.00829pt too wide) in paragraph at lines 385--387
+[]|  [] 
+ []
+
+
+LaTeX Warning: Float too large for page by 54.64174pt on input line 387.
+
+[25] [26 <./p01.pdf>] [27 <./p02.pdf>] [28 <./p03.pdf>]
+<p05.pdf, id=284, pagebox=cropbox, 614.295pt x 794.97pt>
+File: p05.pdf Graphic file (type pdf)
+<use p05.pdf>
+Package pdftex.def Info: p05.pdf  used on input line 396. on input line 396.
+Package pdftex.def Info: Requested size: 552.0021pt x 714.39894pt on input line
+ 396.
+
+Overfull \hbox (123.86552pt too wide) in paragraph at lines 395--397
+[]|  [] 
+ []
+
+
+LaTeX Warning: Float too large for page by 79.04068pt on input line 397.
+
+<p04.pdf, id=285, pagebox=cropbox, 614.295pt x 794.97pt>
+File: p04.pdf Graphic file (type pdf)
+<use p04.pdf>
+Package pdftex.def Info: p04.pdf  used on input line 402. on input line 402.
+Package pdftex.def Info: Requested size: 552.0021pt x 714.39894pt on input line
+ 402.
+
+Overfull \hbox (123.86552pt too wide) in paragraph at lines 401--403
+[]|  [] 
+ []
+
+
+LaTeX Warning: Float too large for page by 79.04068pt on input line 403.
+
+[29] [30 <./p05.pdf>] [31 <./p04.pdf>]
+Overfull \hbox (25.93936pt too wide) in paragraph at lines 408--438
+[] 
+ []
+
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 445--446
 \T1/cmtt/m/n/10 https : / / docs . microsoft . com / en-[]us / bot-[]framework 
 /
  []
 
 
-Overfull \hbox (45.21198pt too wide) in paragraph at lines 397--398
+Overfull \hbox (45.21198pt too wide) in paragraph at lines 451--452
 \T1/cmtt/m/n/10 https : / / chatbotsmagazine . com / design-[]framework-[]for-[
 ]chatbots-[]aa27060c4ea3$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 400--401
+Underfull \hbox (badness 10000) in paragraph at lines 454--455
 \T1/cmtt/m/n/10 https : / / docs . google . com / spreadsheets / d /
  []
 
-[29] ("A:\Documents\Git Project\PolimiChatBot\build\Main Project.aux") ) 
+[33] ("A:\Documents\Git Project\PolimiChatBot\build\Main Project.aux") ) 
 Here is how much of TeX's memory you used:
- 3068 strings out of 493312
- 39434 string characters out of 3138896
- 110451 words of memory out of 3000000
- 6547 multiletter control sequences out of 15000+200000
- 14306 words of font info for 34 fonts, out of 3000000 for 9000
+ 3152 strings out of 493312
+ 40648 string characters out of 3138896
+ 111510 words of memory out of 3000000
+ 6622 multiletter control sequences out of 15000+200000
+ 15125 words of font info for 35 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,6n,25p,1578b,264s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,8n,25p,1578b,263s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Us
 ers\Roncax\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800
 .pk> <C:\Users\Roncax\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi6
@@ -739,9 +754,9 @@ k> <C:\Users\Roncax\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
 \ecbx1728.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10
 .pfb>
 Output written on "A:\Documents\Git Project\PolimiChatBot\build\Main Project.pd
-f" (29 pages, 2527506 bytes).
+f" (33 pages, 2534715 bytes).
 PDF statistics:
- 725 PDF objects out of 1000 (max. 8388607)
+ 747 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

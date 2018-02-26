@@ -14,7 +14,7 @@
 \contentsline {paragraph}{Commento personale}{6}
 \contentsline {subsubsection}{\numberline {2.4.2}FlowXo}{6}
 \contentsline {paragraph}{Implementazione}{6}
-\contentsline {paragraph}{Valutazione}{6}
+\contentsline {paragraph}{Valutazione}{7}
 \contentsline {paragraph}{Commento personale}{7}
 \contentsline {subsubsection}{\numberline {2.4.3}PandoraBots}{7}
 \contentsline {paragraph}{Implementazione}{8}
@@ -26,9 +26,9 @@
 \contentsline {paragraph}{Commento personale}{10}
 \contentsline {subsubsection}{\numberline {2.4.5}Microsoft Bot Framework}{10}
 \contentsline {paragraph}{Conclusioni}{11}
-\contentsline {subsubsection}{\numberline {2.4.6}Wit.ai}{11}
-\contentsline {subsubsection}{\numberline {2.4.7}ChatFuel}{11}
-\contentsline {paragraph}{Implementazione}{11}
+\contentsline {subsubsection}{\numberline {2.4.6}Wit.ai}{12}
+\contentsline {subsubsection}{\numberline {2.4.7}ChatFuel}{12}
+\contentsline {paragraph}{Implementazione}{12}
 \contentsline {paragraph}{Valutazione}{12}
 \contentsline {paragraph}{Commento personale}{13}
 \contentsline {subsubsection}{\numberline {2.4.8}kitt.ai}{13}
@@ -37,20 +37,22 @@
 \contentsline {paragraph}{Commento personale}{15}
 \contentsline {subsection}{\numberline {2.5}Commenti Finali e decisione}{15}
 \contentsline {section}{\numberline {3}Specifiche bot}{15}
-\contentsline {subsection}{\numberline {3.1}Scopo}{15}
-\contentsline {paragraph}{Logged Users}{15}
+\contentsline {subsection}{\numberline {3.1}Architettura}{15}
+\contentsline {subsection}{\numberline {3.2}Scopo}{16}
 \contentsline {paragraph}{UnLogged Users}{16}
-\contentsline {subsection}{\numberline {3.2}Modalit\IeC {\'a} di interazione con gli utenti}{16}
-\contentsline {subsection}{\numberline {3.3}Requisiti non funzionali}{16}
-\contentsline {subsubsection}{\numberline {3.3.1}Prestazioni \and Price strategies}{16}
-\contentsline {subsubsection}{\numberline {3.3.2}Privacy e persistenza}{17}
-\contentsline {subsubsection}{\numberline {3.3.3}Data extraction}{17}
+\contentsline {paragraph}{Logged Users}{16}
+\contentsline {subsection}{\numberline {3.3}Modalit\IeC {\'a} di interazione con gli utenti}{17}
+\contentsline {subsection}{\numberline {3.4}Requisiti non funzionali}{17}
+\contentsline {subsubsection}{\numberline {3.4.1}Prestazioni e Price strategies}{17}
+\contentsline {subsubsection}{\numberline {3.4.2}Privacy e persistenza}{18}
+\contentsline {subsubsection}{\numberline {3.4.3}Data extraction}{18}
 \contentsline {section}{\numberline {4}Flusso di funzionamento}{18}
-\contentsline {section}{\numberline {5}Costruzione bot di Demo}{18}
-\contentsline {subsection}{\numberline {5.1}ServerSide}{19}
-\contentsline {subsection}{\numberline {5.2}UX (DialogFlow)}{19}
-\contentsline {subsection}{\numberline {5.3}Limitazioni}{20}
-\contentsline {section}{\numberline {6}Futuri Sviluppi}{20}
-\contentsline {section}{\numberline {A}Architettura}{22}
-\contentsline {section}{\numberline {B}Flow1}{23}
-\contentsline {section}{\numberline {C}Flow2}{27}
+\contentsline {section}{\numberline {5}Costruzione bot di Demo}{19}
+\contentsline {subsection}{\numberline {5.1}ServerSide}{20}
+\contentsline {subsection}{\numberline {5.2}UX (DialogFlow)}{20}
+\contentsline {subsection}{\numberline {5.3}Limitazioni}{21}
+\contentsline {section}{\numberline {6}Sviluppi Futuri}{21}
+\contentsline {section}{\numberline {A} Architettura di un chatbot }{23}
+\contentsline {section}{\numberline {B}Schema della conversazione}{25}
+\contentsline {section}{\numberline {C}Diagramma dei contesti}{29}
+\contentsline {section}{\numberline {D}Tabella framework}{32}
