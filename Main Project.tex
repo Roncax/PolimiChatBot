@@ -234,7 +234,7 @@ Il framework che più ci ha convinti é \textbf{DialogFlow}, che unisce alla sem
 \subsection{Architettura}
 Nel corso delle ricerche del progetto, in particolare durante la fase di scelta del framework, si é cercato di formalizzare l'architettura di un generico chatbot. Il risultato é proposto in \textbf{appendice A}, alla quale questa sezione fa riferimento. Si possono vedere 4 parti principali, collegate nelle modalitá spiegate nello schema: 
 \begin{enumerate}
-\item \textbf{Servizi di Input/Output}: come dice il nome, l'applicazione che ci permette di raccogliere l'input e mostrale l'output all'utente.
+\item \textbf{Servizi di Input/Output}: come dice il nome, l'applicazione che ci permette di raccogliere l'input e mostrare l'output all'utente.
 \item \textbf{Framework}: insieme degli strumenti che il framework (nel nostro caso dialogFlow) ci consente di utilizzare, dal riconoscimento del linguaggio (NLU) all'interfaccia di progettazione della conversazione. Puó essere usata per "chiamare" API esterne o per fare richieste web qualsiasi (http/..). A seconda di come si é progettato il bot questa sezione puó essere opzionale.
 \item \textbf{Server}: il framework puó appoggiarsi a un codice attivo su un server per svolgere alcune funzioni e richiedere informazioni. É da sottolineare il fatto che se da una parte é necessario, una volta cambiata piattaforma di lavoro, riprogrammare il framework, il codice attivo sul server (a meno di piccoli dettagli) rimane invariato.
 \item \textbf{Raccolta informazioni}: prese da API esterne o scraping.
