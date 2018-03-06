@@ -13,7 +13,7 @@
 
 \renewcommand\refname{References \& Documents}
 \author{Paolo Roncaglioni \and Stefano Sanitate}
-\title{\textbf{Progetto Ingegneria Informatica \\ Documento di Specifica}}
+\title{\textbf{I chatbot: framework di sviluppo e caso di studio} \\ Progetto Ingegneria Informatica}
 \date{\parbox{\linewidth}{\centering%
   \today\endgraf\bigskip\endgraf\bigskip
   \textbf{Supervisors}\endgraf\bigskip
@@ -27,14 +27,14 @@
 
 \section{Introduzione}
 
-Questo documento di specifica descrive il culmine delle ricerche riguardo la tecnologia dei ChatBot e dei framework ad essi dedicati. Raccolte quindi informazioni su servizi disponibili e stato dell'arte abbiamo deciso di concretizzare la ricerca in una demo di un Bot che risponde alle esigenze di uno studente del Politecnico di Milano. Dopo una prima parte in cui vengono descritti in dettaglio quali test abbiamo eseguito prima di cominciare la progettazione vera e propria del bot, si passa a una stesura della specifica e formalizzazione di alcuni concetti chiave naturalmente appresi durante la prima fase. 
+Questo documento di specifica descrive lo stato dell'arte riguardo la tecnologia dei ChatBot e dei framework ad essi dedicati. Raccolte quindi informazioni su servizi disponibili e stato dell'arte abbiamo deciso di concretizzare la ricerca in una demo di un Bot che risponde alle esigenze di uno studente del Politecnico di Milano. Dopo una prima parte in cui vengono descritti in dettaglio quali test abbiamo eseguito prima di cominciare la progettazione vera e propria del bot, si passa a una stesura della specifica e formalizzazione di alcuni concetti chiave naturalmente appresi durante la prima fase di rassegna dei framework di sviluppo. 
 La descrizione della specifica é iniziata con il delineare lo scopo del bot, specificatamente delineando le funzionalità e l'utenza. In un primo momento si è pensato di rivolgere il bot ad un'utenza di pendolari, ma ci siamo resi conto che tale servizio è già esistente (e.g.\ bot orari Trenitalia).
 Dopo aver quindi analizzato varie possibilitá di scelta delle funzionalitá del bot, abbiamo infine pensato di progettarne uno a tema Politecnico, che racchiuda un insieme di semplici tool per lo studente (o per il professore) nella gestione della propria vita universitaria. 
 
-\section{Ricerca del Framework: Bot di test}
+\section{Analisi dei framework di sviluppo}
 Lo scopo di questa sezione é di esplorare il mondo dei framework giá esistenti per trovare la soluzione piú adatta ai nostri scopi. Pertanto abbiamo pensato che il modo migliore per affrontare il problema fosse quello di progettare un chatBot di Test, e implementarlo in ciascuna di queste piattaforme. Esso quindi ci aiuterá con la selezione del nostro ambiente di lavoro in base a dei parametri illustrati sotto. É essenziale che sia un bot semplice, ma con funzionalitá che siano correlate alla costruzione del nostro progetto in specifica, come ad esempio l'uso di webhook.
 
-\subsection{Requisiti}
+\subsection{Requisiti del bot di test}
 \begin{itemize}
 \item Interazione basilari con un’API web.
 \item Riconoscimento domande al bot, piú domande poste in modo diverso devono essere riconosciute (e.g. com'è il tempo domani a Milano? = che tempo fa domani a Milano?).
@@ -42,7 +42,7 @@ Lo scopo di questa sezione é di esplorare il mondo dei framework giá esistenti
 \end{itemize}
 
 \subsection{Parametri di valutazione}
-Questi rappresentano i parametri che useremo per valutare i framework che testeremo. Essi comprendono sia i componenti di valutazione della costruzione del bot, sia quelli piú generali della piattaforma che stiamo usando. La valutazione è a nostra discrezione, ovviamente seguita da una minima descrizione delle procedure svolte.
+Questi rappresentano i parametri usati per valutare i framework analizzati. Essi comprendono sia i componenti di valutazione della costruzione del bot, sia quelli piú generali della piattaforma che stiamo usando. La valutazione è a nostra discrezione, ovviamente seguita da una minima descrizione delle procedure svolte.
 
 \paragraph{Bot}
 \begin{itemize}
@@ -59,11 +59,11 @@ Questi rappresentano i parametri che useremo per valutare i framework che tester
 \item \textit{Disponibilitá di SDK}: utili allo sviluppo, non enormemente influenti in questo test.
 \end{itemize}
 
-\subsection{Descrizione bot}
+\subsection{Descrizione del bot di test}
 Il tipo di bot(test) che alla fine abbiamo scelto di portare avanti è una semplice implementazione di chatbot “Che tempo fa?”, cioè data una localitá (milano, monza, ..) e un giorno (oggi, domani, 31/12/2017, ..) restituisce il tempo meteo della localitá scelta nella data scelta. Questo dovrebbe permetterci di esplorare tutti i parametri sopra descritti.
 La scelta è ricaduta su questo tipo di bot soprattutto grazie alla disponibilitá di una documentazione passo-passo da parte del frameWork DialogFlow dell'implementazione del bot descritto sopra (presente nella repository di github di riferimento).
 
-\subsection{Deployment description}
+\subsection{Sviluppo dei bot con i framework analizzati}
 In questa parte andiamo a descrivere la nostra esperienza con le 8 (su 25-30 di base, elencati in \textbf{appendice D}) piattaforme individuate tramite un'accurata ricerca. Abbiamo escluso tutte quelle piattaforme per il quale non è stato possibile reperire il prezzo o che proponevano solo Trial o Demo (tipicamente pensate per aziende) o quelle che pensiamo non abbiano gli elementi base per il test.
 Per l’hosting e il deployment del codice (funzione weatherWebhook) che è servito da base per l’interazione con API esterne, abbiamo usato la piattaforma Google Cloud Project, usufruendo del servizio gratis per 1 anno. Per quanto riguarda l’API key, abbiamo sfruttato quella del sito \url{https://developer.worldweatheronline.com}, che permette di avere la premium key per un periodo di trial di 60 giorni (500 calls per minuto). Una parte su cui abbiamo avuto inizialmente difficoltá è stato lo studio del servizio di Google Cloud Platform, la cui configurazione si è rivelata più complicata del previsto.
 \subsubsection{DialogFlow} 
@@ -227,10 +227,10 @@ Dopo un’accurata lettura dei docs di riferimento, è stato possibile iniziare 
 Complessivamente questo Framework sembra un buon candidato alla fase finale del nostro progetto, poiché concilia facilitá di utilizzo con possibilitá abbastanza profonda di personalizzazione. Sarebbe necessario verificare il comportamento del Framework con progetti più ampi. Purtroppo è ancora in fase beta, quindi il suo futuro è abbastanza incerto, ma è stato comunque interessante poter apprendere una logica diversa su cui è stato possibile approfondire il concetto di ChatBot.
 
 
-\subsection{Commenti Finali e decisione}
+\subsection{Commenti Finali e selezione del framework}
 Il framework che più ci ha convinti é \textbf{DialogFlow}, che unisce alla semplicitá e intuitivitá di sviluppo del bot una grande profonditá di azioni che é possibile compiere, senza rinunciare a svariati tool di apprendimento e gestione che a noi sono risultati comodi. Note di merito vanno comunque a PandoraBots, che permette di costruire il proprio riconoscimento d'intenti, e kitt.ai, che utilizza la migliore interfaccia tra tutti i sopracitati ambienti. 
 
-\section{Specifiche bot}
+\section{Caso di studio: PolimiHelp}
 \subsection{Architettura}
 Nel corso delle ricerche del progetto, in particolare durante la fase di scelta del framework, si é cercato di formalizzare l'architettura di un generico chatbot. Il risultato é proposto in \textbf{appendice A}, alla quale questa sezione fa riferimento. Si possono vedere 4 parti principali, collegate nelle modalitá spiegate nello schema: 
 \begin{enumerate}
@@ -311,8 +311,8 @@ La seconda (presentata in \textbf{Appendice C}), é invece piú simile a un diag
 
 
 
-\section{Costruzione bot di Demo}
-Dopo aver quindi svolto un lungo lavoro di ricerca abbiamo le conoscenze necessarie per costruire la demo del bot. Appunto perchè si tratta di una prova optiamo per una versione "limitata" del progetto, che però ci permette di utilizzare e consolidare le conoscenze acquisite nella parte precedente. Tutte le limitazioni rispetto all'idea originale sono presenti nella sezione apposita, mentre nelle prime due sono descritti in linea di massima le principali componenti e le nostre soluzioni di implementazione. Avendo ben definito queste due parti, ci è venuto naturale dividerci i compiti tra chi si sarebbe occupato di scrivere il codice nella parte server (Stefano) e chi si sarebbe invece dedicato alla struttura della conversazione (Paolo).
+\section{Costruzione di PolimiHelp}
+Dopo aver quindi svolto un lungo lavoro di ricerca abbiamo le conoscenze necessarie per costruire la demo del bot. Appunto perchè si tratta di una prova optiamo per una versione "limitata" del progetto, che però ci permette di utilizzare e consolidare le conoscenze acquisite nella parte precedente. Tutte le limitazioni rispetto all'idea originale sono riportate nella sezione 5.3, mentre nelle prime due sono descritti in linea di massima le principali componenti e le nostre soluzioni di implementazione. Avendo ben definito queste due parti, ci è venuto naturale dividerci i compiti tra chi si sarebbe occupato di scrivere il codice nella parte server (Stefano) e chi si sarebbe invece dedicato alla struttura della conversazione (Paolo).
 
 \subsection{ServerSide}
 A livello server abbiamo ritenuto opportuno seguire lo stesso procedimento adottato per il test delle piattaforme, ovvero impostare un webhook. A differenza del test con l’API di  \url{https://developer.worldweatheronline.com} abbiamo dovuto scrivere del codice Javascript adatto a gestire le richieste del nostro PolimiBot. Per impostare il webhook per tale scopo abbiamo deciso di utilizzare i servizi offerti dalla piattaforma Google Cloud Platform e utilizzare una Cloud Function con il codice Javascript sopra citato. 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.29)  26 FEB 2018 22:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.29)  6 MAR 2018 12:54
 entering extended mode
 **"./Main Project.tex"
 ("Main Project.tex"
@@ -562,7 +562,7 @@ Package pdftex.def Info: dialogflow.png  used on input line 76. on input line 7
 Package pdftex.def Info: Requested size: 413.99895pt x 170.47212pt on input lin
 e 76.
  [5 <./dialogflow.png>] [6]
-<pandorabots.png, id=33, 819.06pt x 323.70938pt>
+<pandorabots.png, id=34, 819.06pt x 323.70938pt>
 File: pandorabots.png Graphic file (type png)
 <use pandorabots.png>
 Package pdftex.def Info: pandorabots.png  used on input line 122. on input line
@@ -570,14 +570,14 @@ Package pdftex.def Info: pandorabots.png  used on input line 122. on input line
 Package pdftex.def Info: Requested size: 413.99895pt x 163.62259pt on input lin
 e 122.
  [7] [8 <./pandorabots.png>] [9] [10]
-<mbf.png, id=48, 1606.0pt x 780.9175pt>
+<mbf.png, id=49, 1606.0pt x 780.9175pt>
 File: mbf.png Graphic file (type png)
 <use mbf.png>
 Package pdftex.def Info: mbf.png  used on input line 171. on input line 171.
 Package pdftex.def Info: Requested size: 413.99895pt x 201.30595pt on input lin
 e 171.
  [11 <./mbf.png>]
-<chatfuel.png, id=52, 1356.06625pt x 618.31pt>
+<chatfuel.png, id=53, 1356.06625pt x 618.31pt>
 File: chatfuel.png Graphic file (type png)
 <use chatfuel.png>
 Package pdftex.def Info: chatfuel.png  used on input line 187. on input line 18
@@ -585,7 +585,7 @@ Package pdftex.def Info: chatfuel.png  used on input line 187. on input line 18
 Package pdftex.def Info: Requested size: 413.99895pt x 188.7588pt on input line
  187.
  [12 <./chatfuel.png (PNG copy)>] [13]
-<kittai.png, id=60, 622.325pt x 352.31625pt>
+<kittai.png, id=61, 622.325pt x 352.31625pt>
 File: kittai.png Graphic file (type png)
 <use kittai.png>
 Package pdftex.def Info: kittai.png  used on input line 212. on input line 212.
@@ -609,7 +609,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 284--285
  []
 
 [18]
-<flow2legend.png, id=77, 389.455pt x 324.21124pt>
+<flow2legend.png, id=78, 389.455pt x 324.21124pt>
 File: flow2legend.png Graphic file (type png)
 <use flow2legend.png>
 Package pdftex.def Info: flow2legend.png  used on input line 290. on input line
@@ -622,7 +622,7 @@ Overfull \hbox (69.00421pt too wide) in paragraph at lines 290--291
  []
 
 [19 <./flow2legend.png>] [20] [21] [22]
-<botofficial.png, id=92, 1556.81625pt x 884.30376pt>
+<botofficial.png, id=93, 1556.81625pt x 884.30376pt>
 File: botofficial.png Graphic file (type png)
 <use botofficial.png>
 Package pdftex.def Info: botofficial.png  used on input line 358. on input line
@@ -638,7 +638,7 @@ Overfull \hbox (20.71089pt too wide) in paragraph at lines 357--359
 LaTeX Warning: Float too large for page by 54.64174pt on input line 359.
 
 [23] [24 <./botofficial.png>]
-<p01.pdf, id=100, pagebox=cropbox, 845.1575pt x 599.23875pt>
+<p01.pdf, id=101, pagebox=cropbox, 845.1575pt x 599.23875pt>
 File: p01.pdf Graphic file (type pdf)
 <use p01.pdf>
 Package pdftex.def Info: p01.pdf  used on input line 370. on input line 370.
@@ -652,7 +652,7 @@ Overfull \hbox (118.00829pt too wide) in paragraph at lines 369--371
 
 LaTeX Warning: Float too large for page by 54.64174pt on input line 371.
 
-<p02.pdf, id=101, pagebox=cropbox, 845.1575pt x 599.23875pt>
+<p02.pdf, id=102, pagebox=cropbox, 845.1575pt x 599.23875pt>
 File: p02.pdf Graphic file (type pdf)
 <use p02.pdf>
 Package pdftex.def Info: p02.pdf  used on input line 378. on input line 378.
@@ -666,7 +666,7 @@ Overfull \hbox (118.00829pt too wide) in paragraph at lines 377--379
 
 LaTeX Warning: Float too large for page by 54.64174pt on input line 380.
 
-<p03.pdf, id=102, pagebox=cropbox, 845.1575pt x 599.23875pt>
+<p03.pdf, id=103, pagebox=cropbox, 845.1575pt x 599.23875pt>
 File: p03.pdf Graphic file (type pdf)
 <use p03.pdf>
 Package pdftex.def Info: p03.pdf  used on input line 386. on input line 386.
@@ -681,7 +681,7 @@ Overfull \hbox (118.00829pt too wide) in paragraph at lines 385--387
 LaTeX Warning: Float too large for page by 54.64174pt on input line 387.
 
 [25] [26 <./p01.pdf>] [27 <./p02.pdf>] [28 <./p03.pdf>]
-<p05.pdf, id=284, pagebox=cropbox, 614.295pt x 794.97pt>
+<p05.pdf, id=285, pagebox=cropbox, 614.295pt x 794.97pt>
 File: p05.pdf Graphic file (type pdf)
 <use p05.pdf>
 Package pdftex.def Info: p05.pdf  used on input line 396. on input line 396.
@@ -695,7 +695,7 @@ Overfull \hbox (123.86552pt too wide) in paragraph at lines 395--397
 
 LaTeX Warning: Float too large for page by 79.04068pt on input line 397.
 
-<p04.pdf, id=285, pagebox=cropbox, 614.295pt x 794.97pt>
+<p04.pdf, id=286, pagebox=cropbox, 614.295pt x 794.97pt>
 File: p04.pdf Graphic file (type pdf)
 <use p04.pdf>
 Package pdftex.def Info: p04.pdf  used on input line 402. on input line 402.
@@ -751,12 +751,13 @@ jfour\jknappen\ec\dpi600\ecbx1000.pk> <C:\Users\Roncax\AppData\Local\MiKTeX\2.9
 pData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\User
 s\Roncax\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.p
 k> <C:\Users\Roncax\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
-\ecbx1728.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb>
+\ecrm1728.pk> <C:\Users\Roncax\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappe
+n\ec\dpi600\ecbx1728.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb>
 Output written on "A:\Documents\Git Project\PolimiChatBot\build\Main Project.pd
-f" (33 pages, 2534712 bytes).
+f" (33 pages, 2541199 bytes).
 PDF statistics:
- 747 PDF objects out of 1000 (max. 8388607)
+ 769 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 
