@@ -10,7 +10,7 @@ Questa repository contiene il progetto di Ingegneria Informatica di Paolo Roncag
 * Vari file Json: Usati come motori di scraping "fake", poiché non ritenevamo opportuno approfondire anche questo ambito nel nostro progetto.
 
 
-Attualmente il nostro bot é attivo su Telegram al nome di @PolimiStudent_Bot, Enjoy!
+Attualmente il nostro bot (@PolimiStudent_Bot su Telegram) non é più attivo. 
 
 ## Informazioni Generali
 
